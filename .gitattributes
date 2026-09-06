@@ -1,0 +1,10 @@
+# Text files
+*.md text eol=lf
+*.svg text eol=lf
+
+# Raster images are binary assets: never normalize, merge or diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
