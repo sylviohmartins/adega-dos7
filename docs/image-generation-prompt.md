@@ -10,6 +10,8 @@ Preencha os campos entre `<...>` e escolha um dos modos:
 - **Modo B — adaptação/edição**: quando existe uma referência que deve ser preservada;
 - **Modo C — variação temática de marca**: quando a identidade deve permanecer reconhecível e o tema entrar como camada secundária.
 
+Para a identidade da **ADEGA DOS 7**, o Modo C parte de `assets/logos/original.png`, que é a matriz canônica. Um arquivo como `assets/logos/natal-2026.png` é saída temática derivada; nunca use uma variação sazonal como fonte para redefinir a identidade-base.
+
 ---
 
 ## PROMPT MESTRE
@@ -50,6 +52,8 @@ Se houver uma imagem-base obrigatória:
 - não redesenhe elementos aprovados sem necessidade;
 - não invente detalhes que conflitem com a referência;
 - trate a referência como fonte de verdade visual.
+
+Quando a referência for a identidade-base da **ADEGA DOS 7**, registre explicitamente o caminho do master, o hash disponível e a separação entre invariantes permanentes e camada temática variável.
 
 ### 4. HIERARQUIA VISUAL
 

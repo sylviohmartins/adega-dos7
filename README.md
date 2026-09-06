@@ -3,7 +3,7 @@
 Repositório oficial para organização, evolução e preservação da identidade visual da **ADEGA DOS 7**, incluindo assets, variações temáticas, prompts, skills, agentes, provenance e documentação do processo de design.
 
 <p align="center">
-  <img src="assets/logos/natal-2026.png" alt="ADEGA DOS 7 — Natal 2026" width="480">
+  <img src="assets/logos/original.png" alt="ADEGA DOS 7 — identidade original" width="480">
 </p>
 
 <p align="center">
@@ -17,6 +17,23 @@ O repositório funciona como **fonte de verdade da identidade visual** e como ba
 > **RECOGNITION FIRST. THEME SECOND.**
 
 Uma variação sazonal deve continuar imediatamente reconhecível como **ADEGA DOS 7**. O tema complementa a marca; não a substitui.
+
+## Linhagem dos assets
+
+`assets/logos/original.png` é a matriz canônica e permanente da identidade visual. Toda variação temática deve partir dela, preservar seus invariantes e adicionar somente uma camada temática controlada.
+
+```text
+assets/logos/original.png
+        │
+        └── camada temática sazonal controlada
+                │
+                └── assets/logos/natal-2026.png
+```
+
+| Asset | Papel | Regra de uso |
+| --- | --- | --- |
+| `original.png` | identidade-base/master | fonte de verdade para novas adaptações |
+| `natal-2026.png` | variação sazonal | derivada do master; não redefine a identidade |
 
 ## Princípios da identidade
 
@@ -148,7 +165,7 @@ Cada arte relevante pode ter um registro com:
 - dimensões, tamanho, hashes e blob remoto;
 - limitações de reprodutibilidade.
 
-Versão atual: **[Natal 2026 — Design Packet e provenance](docs/assets/natal-2026.md)**.
+Registros atuais: **[Logo original — Design Packet e provenance](docs/assets/original.md)** e **[Natal 2026 — Design Packet, plano de produção e provenance](docs/assets/natal-2026.md)**.
 
 Template: **[docs/templates/asset-design-record.md](docs/templates/asset-design-record.md)**.
 

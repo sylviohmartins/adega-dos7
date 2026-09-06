@@ -6,6 +6,8 @@ Este documento organiza as disciplinas de design que devem ser consideradas na c
 
 Objetivo: preservar reconhecimento e consistência ao longo de campanhas e temas.
 
+Fonte de verdade: `assets/logos/original.png` é a identidade-base permanente. Uma peça sazonal, como `assets/logos/natal-2026.png`, deve ser construída como derivação controlada desse master, sem redefinir garrafa, número 7, lettering, narguilé, mangueira, molduras ou lógica cromática principal.
+
 Perguntas de controle:
 
 - A arte ainda é imediatamente reconhecível como **ADEGA DOS 7**?

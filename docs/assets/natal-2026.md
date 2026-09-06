@@ -1,8 +1,24 @@
-# Natal 2026 — Design Packet e provenance
+# Natal 2026 — Design Packet, plano de produção e provenance
 
-Este documento registra **como a arte `assets/logos/natal-2026.png` foi construída**, quais decisões foram tomadas e quais problemas foram corrigidos ao longo das iterações. Ele serve como referência para designers e agentes futuros.
+Este documento registra o plano profissional de criação da arte `assets/logos/natal-2026.png`: briefing, linhagem, invariantes, blueprint, arquitetura de prompts, evolução, QA e critérios de aprovação. Ele deve permitir que outro designer ou agente entenda a intenção sem depender da memória da sessão original.
 
-## Identificação do asset
+## 1. Linhagem e papel do asset
+
+`assets/logos/original.png` é o master canônico da identidade da **ADEGA DOS 7**. A arte de Natal é uma variação sazonal derivada desse master:
+
+```text
+ORIGINAL — matriz permanente
+        │
+        ├── preserva forma, objetos, lettering e reconhecimento
+        │
+        └── adiciona direção de arte de Natal
+                │
+                └── NATAL 2026 — variação temática
+```
+
+A versão Natal não é um redesign, não substitui o master e não deve ser usada para reconstruir a identidade original. Ao criar uma nova campanha, comece novamente por `assets/logos/original.png`.
+
+## 2. Identificação do asset
 
 ```text
 arquivo: assets/logos/natal-2026.png
@@ -14,69 +30,181 @@ git blob SHA-1: d66d6bbd05d657a6abd7c9b9186f8b5daaecdefc
 SHA-256: f1e71b265888a3f2c2c282245873ec46f9fcf987b58ae64958368c205e33e1d0
 ```
 
-O blob remoto corresponde ao arquivo final local usado como referência na sessão de criação.
+Master de referência:
 
-## Objetivo
+```text
+arquivo: assets/logos/original.png
+SHA-256: f2fd213e95022e63829c47afc673fe8989d373b63cba0a742bfa888a77f17703
+```
 
-Criar uma edição de Natal premium do logo **ADEGA DOS 7** sem transformar a marca em um redesign temático.
+## 3. Briefing de design
 
-Percepção desejada:
+### Objetivo
+
+Criar uma edição de Natal premium do logo **ADEGA DOS 7**, preservando a identidade original e fazendo o tema entrar como uma camada visual secundária, controlada e reconhecível.
+
+### Percepção desejada
 
 > **“É exatamente o ADEGA DOS 7, porém em uma edição especial premium de Natal.”**
 
-## Referência e identidade preservada
+### Direção de arte
 
-A construção partiu de uma imagem de referência fornecida na sessão de criação. O arquivo original ainda não está versionado neste repositório.
+- atmosfera: festiva, sofisticada e acolhedora;
+- materiais: vidro, metal, madeira e detalhes de acabamento premium;
+- luz: quente, controlada e com highlights legíveis;
+- ritmo: detalhado, porém organizado;
+- ornamentação: integrada à composição, nunca acumulada sobre os objetos;
+- estilo: emblema vintage-premium, ilustrativo e sem aparência cartoon/neon.
 
-Elementos tratados como invariantes:
+## 4. Critérios de sucesso
 
-- emblema circular;
-- texto `ADEGA DOS` arqueado no topo;
+A variação só é aprovada quando:
+
+- continua imediatamente reconhecível como **ADEGA DOS 7**;
+- preserva o mesmo emblema, lettering, garrafa, número `7`, narguilé, mangueira e piteira do master;
+- comunica Natal por cor, material, luz e ornamentos, sem precisar de texto explicativo;
+- mantém a topologia física dos objetos;
+- não introduz ruído, duplicações ou elementos temáticos que roubem o foco;
+- funciona em tamanho normal, thumbnail e avatar;
+- passa pela validação técnica e pelo registro de provenance.
+
+Princípio de decisão:
+
+> **RECOGNITION FIRST. THEME SECOND.**
+
+## 5. Invariantes e variáveis
+
+### Invariantes obrigatórios
+
+- emblema circular em composição 1:1;
+- texto exato `ADEGA DOS` no arco superior;
 - garrafa central;
 - número `7` como assinatura dominante;
 - narguilé à esquerda;
-- mangueira envolvendo a composição;
-- linguagem detalhada/vintage-premium;
-- fundo preto e contorno metálico.
+- uma mangueira contínua;
+- uma única piteira final;
+- fundo preto e molduras metálicas;
+- coerência de escala, encaixe, volumes e conexões;
+- identidade de acabamento vintage-premium.
 
-## Variáveis temáticas
+### Variáveis controladas pelo tema
 
-Foram autorizadas mudanças controladas em:
+- paleta secundária;
+- iluminação e reflexos;
+- folhas, pinhas, azevinho e outros ornamentos periféricos;
+- fitas e luzes quentes, quando não cobrirem a identidade;
+- materiais e pequenos highlights;
+- atmosfera festiva;
+- densidade de decoração, sempre subordinada à marca.
 
-- paleta;
-- iluminação;
-- folhas e ornamentos periféricos;
-- materiais/reflexos;
-- detalhes de fita;
-- atmosfera geral.
+## 6. Theme Research Pack
 
-## Blueprint conceitual
+Para este tema, a pesquisa foi convertida em códigos visuais simples e riscos de associação:
+
+| Categoria | Decisão |
+| --- | --- |
+| códigos positivos | verde profundo, bordô/vinho, dourado metálico, champagne, pinheiro, azevinho e luz quente |
+| atmosfera | Natal premium, sóbrio e integrado ao emblema |
+| evitar | cartoon, neon, neve excessiva, Papai Noel como foco e decoração cobrindo objetos |
+| risco cromático | verde + amarelo/dourado + branco pode remeter a Copa/Brasil |
+| mitigação | aprofundar verde, incluir bordô/vinho, restringir branco e usar dourado como metal |
+
+## 7. Design Packet / blueprint
+
+### Hierarquia P1–P4
+
+1. **P1 — garrafa + número 7**;
+2. **P2 — `ADEGA DOS`**;
+3. **P3 — narguilé + mangueira + piteira**;
+4. **P4 — decoração natalina e acentos periféricos**.
+
+### Mapa do canvas
 
 ```text
 ┌──────────────────────────────────┐
 │         ADEGA DOS [P2]           │
-│       arco superior limpo        │
+│       arco superior legível       │
 │                                  │
 │  NARGUILÉ [P3]    GARRAFA [P1]   │
 │       │               7           │
 │       │              [P1]         │
 │       ╰──── 1 MANGUEIRA ───────► │
 │                     1 PITEIRA     │
-│                                  │
-│  pinheiro/azevinho/fitas [P4]    │
+│        decoração temática [P4]   │
 └──────────────────────────────────┘
 ```
 
-Hierarquia final:
+Regras de composição:
 
-1. garrafa + número 7;
-2. `ADEGA DOS`;
-3. narguilé + mangueira + piteira;
-4. decoração natalina.
+- manter o centro óptico na garrafa e no `7`;
+- deixar o arco superior respirado para o lettering;
+- não esconder a saída do narguilé;
+- não ocupar a base de modo que a mangueira perca continuidade;
+- reservar safe area externa para avatar e recortes quadrados;
+- manter ornamentos fora das áreas de maior contraste do nome e do rótulo.
 
-## Topologia funcional
+## 8. Arquitetura de prompt
 
-Um dos principais refinamentos foi tornar a mecânica do narguilé inequívoca:
+O prompt de produção deve ser montado em blocos, para separar intenção de decoração e facilitar correções:
+
+1. papel: diretor de arte, designer de identidade e revisor visual;
+2. referência: `assets/logos/original.png` como fonte de verdade;
+3. invariantes: objetos, texto, composição, proporções e topologia;
+4. direção temática: Natal traduzido por paleta, material, luz e ornamentação;
+5. materialidade: vidro, cobre, bronze, madeira, verde profundo e bordô controlado;
+6. negativos: duplicações, texto aleatório, ruído, estética esportiva, cartoon/neon e excesso de neve;
+7. saída: canvas 1:1, alta resolução, bordas limpas e leitura em thumbnail;
+8. QA: tratar a primeira saída como rascunho e corrigir antes da aprovação.
+
+### Prompt-base para futuras variações
+
+```text
+Atue como diretor de arte e designer de identidade visual da ADEGA DOS 7.
+Use assets/logos/original.png como matriz canônica e preserve reconhecimento antes
+de aplicar o tema. Mantenha o emblema circular, o texto exato ADEGA DOS, a garrafa
+central, o número 7, o narguilé à esquerda, uma única mangueira contínua e uma
+única piteira final. Preserve escala, encaixes, materiais e leitura em thumbnail.
+
+Adicione Natal apenas como camada secundária por meio de verde profundo, bordô/vinho,
+dourado metálico, champagne, luz quente e ornamentação periférica fina. Não use
+texto secundário, placas, slogans, estrelas soltas, peças flutuantes, mangueiras
+duplicadas, piteiras duplicadas, Papai Noel como foco, estética cartoon/neon,
+neve excessiva ou paleta que remeta à Copa/Brasil.
+
+Entregue um emblema 1:1, premium, detalhado e legível. A primeira renderização é
+um rascunho: faça revisão adversarial, corrija anomalias localmente e só então
+exporte a versão final.
+```
+
+O prompt-base deve ser combinado com o Design Packet específico da campanha e com `docs/image-generation-prompt.md`; não substitui a revisão humana.
+
+## 9. Fluxo de produção e gates
+
+```text
+BRIEF
+  ↓
+DESIGN PACKET + THEME RESEARCH PACK
+  ↓
+PROMPT DE PRODUÇÃO
+  ↓
+PRIMEIRA SAÍDA = RASCUNHO
+  ↓
+DESIGN QA ADVERSARIAL
+  ↓
+EDIÇÃO LOCALIZADA E CONSERVADORA
+  ↓
+TESTES DE THUMBNAIL / AVATAR / CONTEXTO
+  ↓
+EXPORTAÇÃO BINÁRIA + PROVENANCE
+  ↓
+VALIDAÇÃO LOCAL + PR + VALIDAÇÃO REMOTA
+```
+
+Bloqueadores interrompem o fluxo: texto incorreto, identidade perdida, objeto ausente, conexão impossível, duplicação funcional, corte relevante, associação temática errada ou arquivo inválido/truncado.
+
+## 10. Topologia funcional
+
+Um dos principais controles é tornar a mecânica do narguilé inequívoca:
 
 ```text
 NARGUILÉ
@@ -85,92 +213,46 @@ NARGUILÉ
         └── 1 piteira final
 ```
 
-Versões intermediárias sugeriam duas mangueiras e múltiplas piteiras/peças metálicas. Isso foi considerado anomalia estrutural e removido.
+Versões intermediárias sugeriam duas mangueiras ou múltiplas piteiras/peças metálicas. Isso foi tratado como anomalia estrutural e removido.
 
-## Evolução da arte
+## 11. Evolução e decisões de revisão
 
 ### Iteração 1 — Natal premium
 
-A primeira adaptação introduziu:
-
-- verde profundo;
-- dourado;
-- bordô;
-- pinheiro;
-- azevinho;
-- luzes quentes;
-- ornamentos natalinos.
-
-Problema identificado: foi adicionada uma placa inferior com o texto `EDIÇÃO DE NATAL`, criando um elemento estrutural que não existia no logo original.
+Introduziu verde profundo, dourado, bordô, pinheiro, azevinho, luzes quentes e ornamentos. O problema foi uma placa inferior com `EDIÇÃO DE NATAL`, que criava um elemento estrutural inexistente no master.
 
 ### Iteração 2 — remover texto secundário
 
-Decisão:
-
-- remover completamente a placa;
-- não substituir por `Feliz Natal`, `Boas Festas` ou `Feliz Ano Novo`;
-- fazer o tema ser entendido visualmente.
-
-Princípio reforçado:
-
-> **Recognition first. Theme second.**
+Decisão: remover a placa e não substituí-la por `Feliz Natal`, `Boas Festas` ou `Feliz Ano Novo`. O tema deveria ser entendido visualmente.
 
 ### Iteração 3 — limpeza estrutural
 
-Foram identificados elementos gerados pela IA que não faziam sentido:
-
-- estrelas antes/depois de `ADEGA DOS`;
-- múltiplos segmentos parecendo mangueiras;
-- peças metálicas redundantes;
-- múltiplas piteiras;
-- conexão pouco clara entre narguilé e mangueira.
-
-Correções:
-
-- remover estrelas;
-- manter apenas uma mangueira;
-- mostrar claramente a saída do narguilé;
-- manter uma única piteira;
-- reduzir ornamentos próximos à conexão funcional.
+Foram removidos estrelas laterais sem função, múltiplos segmentos de mangueira, peças metálicas redundantes e conexões ambíguas. A saída do narguilé, a mangueira e a piteira passaram a ser verificadas como uma cadeia única.
 
 ### Iteração 4 — correção de linguagem cromática
 
-Mesmo após a correção estrutural, a combinação de verde, branco e dourado estava lembrando a estética da Copa do Mundo/seleção brasileira.
+A combinação inicial de verde, dourado e branco lembrava uma estética esportiva/Copa. A paleta foi ajustada para verde natalino profundo, bordô/vinho, dourado metálico, champagne e branco mínimo.
 
-A direção cromática foi ajustada para afastar essa associação e tornar o Natal inequívoco:
-
-- verde-esmeralda/natalino mais profundo;
-- bordô/vinho mais presente;
-- dourado metálico como acabamento premium;
-- champagne nos highlights;
-- branco restrito a reflexos essenciais;
-- decoração natalina integrada à estrutura.
-
-## Paleta funcional
+## 12. Paleta funcional
 
 | Função | Direção |
 | --- | --- |
-| Base | preto profundo + verde natalino escuro |
-| Identidade/acabamento | dourado metálico |
-| Tema secundário | bordô/vinho |
-| Highlights | champagne/quente |
-| Branco | mínimo, somente quando necessário |
+| base | preto profundo + verde natalino escuro |
+| identidade/acabamento | dourado metálico |
+| tema secundário | bordô/vinho |
+| highlights | champagne quente |
+| branco | mínimo, apenas reflexos essenciais |
 
-Associação proibida identificada durante revisão:
-
-- combinação verde + amarelo/dourado + branco com leitura esportiva/Brasil/Copa.
-
-## Regras negativas consolidadas
+## 13. Regras negativas consolidadas
 
 Não utilizar:
 
 - estrelas laterais decorativas sem função;
 - texto secundário dentro do emblema;
-- mais de uma mangueira;
-- mais de uma piteira;
+- mais de uma mangueira ou piteira;
 - peças metálicas soltas;
 - Papai Noel como elemento principal;
-- gorro na garrafa/número 7;
+- gorro na garrafa ou no número `7`;
 - árvore de Natal ocupando o centro;
 - excesso de neve;
 - estética cartoon/neon;
@@ -178,44 +260,46 @@ Não utilizar:
 - vermelho excessivamente saturado;
 - paleta que remeta à Copa/Brasil.
 
-## Critérios que determinaram a aprovação
+## 14. QA e evidências de aprovação
 
-A versão final foi considerada coerente quando:
+A revisão final deve conferir:
 
-- `ADEGA DOS` permaneceu legível;
-- número 7 continuou dominante;
-- garrafa manteve protagonismo;
-- narguilé permaneceu reconhecível;
-- uma única mangueira saiu claramente do narguilé;
-- uma única piteira encerrou o percurso;
-- estrelas e peças redundantes foram removidas;
-- Natal passou a ser percebido pela paleta/material/ornamentos, sem texto explicativo;
-- a arte deixou de remeter à estética da Copa do Mundo;
-- a composição permaneceu premium e equilibrada.
+- texto `ADEGA DOS` e número `7`;
+- hierarquia P1–P4;
+- continuidade da mangueira e unicidade da piteira;
+- quantidade e função dos objetos;
+- contraste, materialidade e associação cromática;
+- equilíbrio dos ornamentos;
+- leitura em 128 px e 64 px;
+- versão em tons de cinza;
+- safe area e uso como avatar;
+- formato, dimensões, decodificação, tamanho e SHA-256.
 
-## Como reproduzir ou criar uma nova variação
+Comandos de validação do repositório:
 
-Não copie apenas o prompt final. Reaplique o processo:
+```bash
+python scripts/validate_assets.py
+python scripts/validate_repository.py
+git diff --check
+```
 
-1. leia a referência original;
-2. separe invariantes e variáveis;
-3. modele a topologia dos objetos;
-4. produza blueprint;
-5. traduza o novo tema por direção de arte;
-6. gere uma primeira proposta;
-7. trate a saída como rascunho;
-8. procure anomalias estruturais e associações indesejadas;
-9. corrija por edição localizada;
-10. valide em contexto e tecnicamente.
+## 15. Como reproduzir uma nova edição temática
 
-Consulte `docs/image-construction-workflow.md` e `.github/skills/image-production/SKILL.md` para o processo completo.
+1. começar por `assets/logos/original.png`;
+2. ler `AGENTS.md`, as regras de marca e o `Design System`;
+3. preencher um Brief e um Theme Research Pack;
+4. separar invariantes de variáveis;
+5. modelar a topologia dos objetos;
+6. construir o blueprint e definir a hierarquia;
+7. montar o prompt por blocos, incluindo negativos e saída técnica;
+8. gerar uma primeira proposta e tratá-la como rascunho;
+9. fazer revisão adversarial e edição localizada;
+10. validar em contexto, tecnicamente e remotamente;
+11. registrar decisões, hashes e limitações no provenance;
+12. abrir PR sem alterar o master original.
 
-## Limitações de provenance
+Consulte `.github/prompts/design-blueprint.prompt.md`, `.github/prompts/create-themed-image.prompt.md`, `.github/prompts/review-image.prompt.md`, `.github/prompts/record-provenance.prompt.md` e `docs/image-construction-workflow.md`.
 
-Não foram preservados nesta versão:
+## 16. Limitações de provenance
 
-- seed específico do gerador;
-- parâmetros internos do modelo de imagem;
-- arquivo original de referência dentro do repositório.
-
-Esses itens devem ser registrados em futuras produções quando estiverem disponíveis e forem úteis para reprodutibilidade.
+Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.

@@ -25,15 +25,16 @@ Converta o Design Packet em um prompt de produção completo e execute a criaç�
 ## Regras de produção
 
 1. Preserve os invariantes definidos no Design Packet.
-2. Respeite a hierarquia visual e o blueprint do canvas.
-3. Reproduza exatamente o texto solicitado.
-4. Quando o nome completo aparecer em texto humano, use **ADEGA DOS 7**.
-5. Respeite quantidades e conexões funcionais dos objetos.
-6. Use o tema como camada de direção de arte, não como colagem de enfeites.
-7. Não invente símbolos, palavras ou acessórios não solicitados.
-8. Evite associações cromáticas/culturais proibidas no briefing.
-9. Preserve negative space e safe areas.
-10. Para variações de marca: **RECOGNITION FIRST. THEME SECOND.**
+2. Para a **ADEGA DOS 7**, use `assets/logos/original.png` como matriz canônica; a arte temática é uma derivação, não uma nova origem de identidade.
+3. Respeite a hierarquia visual e o blueprint do canvas.
+4. Reproduza exatamente o texto solicitado.
+5. Quando o nome completo aparecer em texto humano, use **ADEGA DOS 7**.
+6. Respeite quantidades e conexões funcionais dos objetos.
+7. Use o tema como camada de direção de arte, não como colagem de enfeites.
+8. Não invente símbolos, palavras ou acessórios não solicitados.
+9. Evite associações cromáticas/culturais proibidas no briefing.
+10. Preserve negative space e safe areas.
+11. Para variações de marca: **RECOGNITION FIRST. THEME SECOND.**
 
 ## QA obrigatório após a primeira saída
 

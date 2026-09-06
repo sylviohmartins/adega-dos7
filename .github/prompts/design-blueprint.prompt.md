@@ -48,6 +48,7 @@ Entregue:
 ## Regras
 
 - Não invente elementos de marca ausentes das referências.
+- Para a **ADEGA DOS 7**, trate `assets/logos/original.png` como o master canônico. Descreva `assets/logos/natal-2026.png` e outras peças sazonais como derivados temáticos, nunca como origem da identidade.
 - Para uma peça de marca, escreva **ADEGA DOS 7** sempre em maiúsculas quando o nome completo aparecer em texto humano.
 - Não trate tema como mera coleção de enfeites; traduza-o por cor, luz, material, textura, atmosfera e ornamentos controlados.
 - Modele explicitamente quantidades e conexões de objetos funcionais.
