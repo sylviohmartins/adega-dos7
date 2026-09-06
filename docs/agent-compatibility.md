@@ -1,50 +1,59 @@
 # Compatibilidade entre agentes
 
-O repositório usa **uma fonte canônica + adaptadores finos**, em vez de duplicar o mesmo conjunto de regras para cada fornecedor.
+O repositório da **ADEGA DOS 7** usa **uma fonte canônica + adaptadores finos + skills portáveis**, evitando duplicar regras para cada fornecedor.
 
-## Fonte canônica
+## Camadas
 
 ```text
-AGENTS.md
-  └── docs/
-      ├── design-system.md
-      ├── image-construction-workflow.md
-      ├── image-generation-prompt.md
-      ├── asset-management.md
-      └── references.md
-```
+AGENTS.md                         instruções compartilháveis e always-on
+└── .agents/
+    ├── config.json               política declarativa
+    ├── rules/                    regras por risco
+    ├── specs/                    execução e conclusão
+    ├── skills/                   procedimentos sob demanda
+    ├── memory/                   conhecimento durável
+    ├── runs/                     estado transitório
+    └── schemas/                  contratos estruturados
 
-`AGENTS.md` contém regras persistentes e links. A documentação detalhada é carregada conforme a tarefa.
+.github/                          integrações específicas do GitHub/Copilot
+CLAUDE.md                         adaptador Claude Code
+GEMINI.md                         adaptador Gemini CLI
+docs/                             conhecimento detalhado e provenance
+```
 
 ## OpenAI / Codex
 
-Arquivo principal:
+Entrada principal:
 
 ```text
 AGENTS.md
 ```
 
-Codex reconhece instruções `AGENTS.md` hierarquicamente e deve executar checks programáticos definidos nelas quando aplicáveis.
+`AGENTS.md` é hierárquico: instruções mais próximas do arquivo têm precedência dentro do escopo. Checks programáticos descritos nas instruções devem ser executados quando aplicáveis.
+
+O modelo de execução local está em `.agents/specs/execution-model.md` e foi inspirado no fluxo GitHub-mediated do `nexo-financeiro-api`, adaptado para governança de marca e produção visual.
 
 ## GitHub Copilot
 
-Adaptadores:
+Configurações usadas:
 
 ```text
 .github/copilot-instructions.md
 .github/instructions/*.instructions.md
 .github/prompts/*.prompt.md
 .github/agents/*.agent.md
-.github/skills/*/SKILL.md
+.agents/skills/*/SKILL.md
 ```
 
-Separação usada:
+Separação:
 
-- **custom instructions**: contexto always-on;
-- **path instructions**: regras por escopo;
-- **prompt files**: tarefas reutilizáveis;
-- **custom agents**: especialistas;
-- **skills**: workflows procedurais carregados sob demanda.
+- `copilot-instructions.md`: contexto curto e always-on específico do Copilot;
+- path instructions: regras automáticas para arquivos/paths específicos;
+- prompt files: tarefas reutilizáveis acionadas pelo usuário;
+- custom agents: especialistas com função e processo próprios;
+- Agent Skills: workflows procedurais carregados quando relevantes.
+
+O GitHub documenta `.agents/skills` como localização válida para skills de projeto; por isso ela é a raiz canônica usada aqui, reduzindo acoplamento a uma única ferramenta.
 
 ## Claude Code
 
@@ -54,7 +63,9 @@ Adaptador:
 CLAUDE.md
 ```
 
-Ele é propositalmente curto e encaminha para `AGENTS.md`/`docs/`, reduzindo divergência entre instruções.
+Ele importa/aponta para `AGENTS.md` e mantém o contexto permanente curto. As skills locais continuam em `.agents/skills`; quando a ferramenta não fizer descoberta automática desse path, `AGENTS.md` roteia explicitamente para a skill adequada.
+
+A orientação do projeto favorece instruções claras, critérios de sucesso, investigação antes de afirmar fatos e self-correction `draft -> review -> refine`.
 
 ## Gemini CLI
 
@@ -64,25 +75,53 @@ Adaptador:
 GEMINI.md
 ```
 
-Também funciona como shim para o contexto canônico. Gemini CLI permite configurar nomes alternativos de arquivos de contexto, mas manter `GEMINI.md` facilita uso sem configuração adicional.
+Gemini CLI suporta contexto hierárquico em `GEMINI.md` e imports `@arquivo`. O arquivo raiz importa `AGENTS.md`, evitando duplicação. Extensões Gemini podem empacotar prompts, MCPs e comandos, mas não são adicionadas enquanto capacidades locais forem suficientes.
 
 ## Agent Skills
 
-A skill principal está em:
+Raiz canônica:
 
 ```text
-.github/skills/image-production/SKILL.md
+.agents/skills/<skill-name>/SKILL.md
 ```
 
-O formato `SKILL.md` usa metadata curta (`name` e `description`) e conteúdo procedural mais detalhado, seguindo a ideia de progressive disclosure: o agente identifica a skill com pouco contexto e só carrega o procedimento completo quando necessário.
+Cada skill usa frontmatter mínimo `name` + `description` e corpo procedural. Esse desenho segue progressive disclosure: o agente decide relevância pela metadata e só carrega as instruções completas quando necessário.
 
-## Regra contra duplicação
+Skills atuais:
+
+- `repository-discovery`;
+- `planning`;
+- `task-completion`;
+- `image-production`;
+- `design-review`;
+- `asset-management`;
+- `agent-asset-vetting`;
+- `documentation`.
+
+## Custom agents da ADEGA DOS 7
+
+```text
+.github/agents/art-director.agent.md
+.github/agents/brand-guardian.agent.md
+.github/agents/design-qa.agent.md
+.github/agents/visual-researcher.agent.md
+```
+
+- **Art Director**: orquestra briefing, blueprint, produção e refinamento.
+- **Brand Guardian**: protege invariantes, nomenclatura e factualidade.
+- **Design QA**: revisão visual/técnica adversarial.
+- **Visual Researcher**: pesquisa temática, códigos visuais e riscos de associação.
+
+## MCPs, hooks, plugins e extensões
+
+Não são adicionados por padrão. Use `.agents/skills/agent-asset-vetting/SKILL.md` antes de incorporar qualquer capacidade externa. A regra é necessidade comprovada + menor privilégio + licença + revisão estática + benchmark.
+
+## Regra contra drift
 
 Quando uma regra evoluir:
 
-1. atualize primeiro a fonte canônica (`AGENTS.md` ou `docs/`);
-2. altere os adaptadores apenas se o caminho/ponte precisar mudar;
-3. não copie blocos extensos para `CLAUDE.md`, `GEMINI.md` e `copilot-instructions.md`;
-4. valide se todos os links continuam corretos.
-
-Essa arquitetura reduz drift entre ferramentas e mantém o conhecimento do projeto utilizável mesmo quando o agente/modelo muda.
+1. atualize `AGENTS.md`, `.agents/` ou `docs/` conforme a natureza da regra;
+2. altere adaptadores apenas quando a ponte precisar mudar;
+3. não copie blocos extensos para vários fornecedores;
+4. execute `python scripts/validate_repository.py`;
+5. valide os links e paths no PR.
