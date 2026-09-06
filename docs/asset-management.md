@@ -35,6 +35,16 @@ original.png
 
 Usar nomes em minúsculas, sem espaços e com hífen como separador.
 
+## Linhagem entre master e variações
+
+O arquivo `assets/logos/original.png` é o master canônico da marca. Arquivos sazonais, como `assets/logos/natal-2026.png`, são derivados do master e não devem ser tratados como sua fonte de identidade.
+
+```text
+original.png  →  camada temática controlada  →  <tema>-<ano>.png
+```
+
+Ao criar uma nova variação, não altere o master para acomodar o tema. Registre no provenance quais invariantes foram preservados e quais variáveis foram adicionadas.
+
 ## Fluxo seguro para arquivos binários
 
 ### 1. Validar o arquivo fonte
@@ -51,6 +61,8 @@ Antes do upload, confirmar pelo menos:
 Exemplo em ambiente Unix:
 
 ```bash
+file assets/logos/original.png
+sha256sum assets/logos/original.png
 file assets/logos/natal-2026.png
 sha256sum assets/logos/natal-2026.png
 ```
@@ -121,4 +133,5 @@ Git LFS não é necessário apenas porque um PNG possui alguns megabytes. Adotar
 - [ ] tamanho remoto é coerente;
 - [ ] preview remoto está completo;
 - [ ] hash remoto foi comparado quando possível;
+- [ ] relação master → variação está documentada;
 - [ ] commit descreve a alteração de forma objetiva.
