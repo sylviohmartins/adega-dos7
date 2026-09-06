@@ -1,14 +1,7 @@
 # Gemini CLI project context
 
-Use `AGENTS.md` como fonte de verdade para instruções gerais deste repositório.
+@./AGENTS.md
 
-Antes de modificar qualquer arquivo, leia `AGENTS.md` e carregue somente a documentação necessária à tarefa.
+`AGENTS.md` é a fonte canônica de instruções do projeto e é importado acima para reduzir duplicação e divergência entre agentes.
 
-Para trabalho visual, consulte:
-
-- `docs/design-system.md`;
-- `docs/image-construction-workflow.md`;
-- `.github/skills/image-production/SKILL.md`;
-- `docs/asset-management.md` quando houver manipulação de arquivos.
-
-Não duplique aqui regras já documentadas. O objetivo deste arquivo é apenas encaminhar o Gemini CLI para o contexto canônico do projeto.
+Para trabalho visual, carregue sob demanda os documentos apontados em `AGENTS.md`, especialmente o sistema de design, o workflow de construção de imagens e a política de assets.
