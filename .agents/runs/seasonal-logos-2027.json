@@ -35,7 +35,7 @@
       "id": "validation",
       "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Ano Novo.",
       "status": "DONE",
-      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea."],
+      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
       "blocker": null
     }
   ],
@@ -58,8 +58,8 @@
     "O tema de Ano Novo pode ser confundido com decoração natalina se usar vermelho, verde ou excesso de enfeites."
   ],
   "nextSteps": [
-    "Publicar a branch em pull request e aguardar revisão humana antes de qualquer promoção para main.",
+    "Aguardar revisão humana do PR #4 antes de qualquer promoção para main.",
     "Retomar Carnaval em rodada separada, se solicitado."
   ],
-  "lastCheckpoint": "2026-09-06T21:25:55Z"
+  "lastCheckpoint": "2026-09-06T21:30:48Z"
 }
