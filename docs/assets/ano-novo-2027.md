@@ -259,4 +259,14 @@ python scripts/validate_repository.py
 git diff --check
 ```
 
-Resultado remoto e PR serão registrados após a publicação da branch. O upload deve usar o arquivo PNG binário real; ações destinadas a UTF-8 não são adequadas para este asset.
+Resultado local: todos os comandos passaram; o PNG é decodificável, tem 1254 × 1254 px e permanece válido em miniaturas de 128 px, 64 px e tons de cinza.
+
+Resultado remoto:
+
+- [PR #4 — feat(brand): add authentic New Year 2027 logo](https://github.com/sylviohmartins/adega-dos7/pull/4) foi aberto contra `main`;
+- commit remoto da branch: `60244cb307758db59803a673a69382f8a36f1502`;
+- blob remoto de `assets/logos/ano-novo-2027.png`: `d1974493a74ffd2f8736cea48b8952de1766c1f8`;
+- `fetch_file` remoto em Base64, normalizado sem quebras de linha, coincidiu exatamente com o arquivo local;
+- o tamanho remoto é coerente com o PNG local de 527.757 bytes; as dimensões permanecem 1254 × 1254 px.
+
+O upload usou o arquivo PNG binário real; ações destinadas a UTF-8 não foram usadas para o asset.
