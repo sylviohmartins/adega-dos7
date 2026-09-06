@@ -65,11 +65,17 @@ Processo completo: **[docs/image-construction-workflow.md](docs/image-constructi
 
 ## Arquitetura para agentes de IA
 
-O repositório separa contexto persistente de conhecimento carregado sob demanda:
+O repositório separa contexto persistente de conhecimento carregado sob demanda e usa adaptadores finos para diferentes agentes:
 
 ```text
 AGENTS.md
-│   regras gerais e mapa do repositório
+│   fonte canônica de instruções gerais
+│
+├── CLAUDE.md
+│   adaptador para Claude Code
+│
+├── GEMINI.md
+│   adaptador para Gemini CLI
 │
 ├── .github/copilot-instructions.md
 │   contexto persistente para Copilot
@@ -92,7 +98,7 @@ AGENTS.md
     └── review-image.prompt.md
 ```
 
-Essa separação evita repetir um prompt gigante em todas as tarefas e permite que cada agente carregue apenas o conhecimento necessário.
+Essa separação evita repetir um prompt gigante em todas as tarefas e reduz divergência entre ferramentas. Veja **[docs/agent-compatibility.md](docs/agent-compatibility.md)**.
 
 ## Disciplinas de design consideradas
 
@@ -155,6 +161,8 @@ Template para novas artes:
 ```text
 .
 ├── AGENTS.md
+├── CLAUDE.md
+├── GEMINI.md
 ├── .gitattributes
 ├── README.md
 ├── .github/
@@ -172,6 +180,7 @@ Template para novas artes:
 │   │   └── natal-2026.md
 │   ├── templates/
 │   │   └── asset-design-record.md
+│   ├── agent-compatibility.md
 │   ├── asset-management.md
 │   ├── design-system.md
 │   ├── image-construction-workflow.md
@@ -237,7 +246,7 @@ Detalhes: **[docs/asset-management.md](docs/asset-management.md)**.
 
 ## Referências de mercado
 
-A arquitetura de agentes e os critérios de design foram baseados em documentação e referências de OpenAI/Codex, GitHub Copilot, Agent Skills, Nielsen Norman Group, Apple Human Interface Guidelines e WCAG.
+A arquitetura de agentes e os critérios de design foram baseados em documentação e referências de OpenAI/Codex, GitHub Copilot, Anthropic Agent Skills/Claude Code, Gemini CLI, Nielsen Norman Group, Apple Human Interface Guidelines e WCAG.
 
 Veja **[docs/references.md](docs/references.md)**.
 
