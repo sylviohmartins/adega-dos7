@@ -17,16 +17,22 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: visual-assets-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-assets:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        # actions/checkout v7.0.1 — pinned to an immutable commit for supply-chain safety.
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        # actions/setup-python v7.0.0 — pinned to an immutable commit for supply-chain safety.
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
 
