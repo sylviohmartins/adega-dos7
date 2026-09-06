@@ -1,20 +1,24 @@
+---
+description: Constrói o Design Packet/blueprint da ADEGA DOS 7 antes da produção de uma nova arte ou adaptação temática.
+---
+
 # Design Blueprint — criar a planta visual antes da arte
 
 Use este prompt para transformar qualquer briefing visual em um **Design Packet** antes da geração final.
 
 ## Entrada
 
-- Tema: `<tema>`
-- Tipo de peça: `<logo, campanha, post, embalagem, banner, outro>`
-- Objetivo: `<objetivo>`
-- Canal/uso: `<Instagram, impressão, camiseta, embalagem, outro>`
-- Referência principal: `<anexar ou indicar>`
-- Texto exato: `<texto ou NENHUM>`
-- Restrições adicionais: `<opcional>`
+- Tema: `${input:theme}`
+- Tipo de peça: `${input:pieceType}`
+- Objetivo: `${input:objective}`
+- Canal/uso: `${input:channel}`
+- Referência principal: `${input:reference}`
+- Texto exato: `${input:exactText}`
+- Restrições adicionais: `${input:constraints}`
 
 ## Tarefa
 
-Leia `AGENTS.md`, `docs/design-system.md` e `docs/image-construction-workflow.md`.
+Leia `AGENTS.md`, `.agents/rules/brand-integrity.md`, `.agents/skills/image-production/SKILL.md`, `docs/design-system.md` e `docs/image-construction-workflow.md`.
 
 Não gere ainda a arte final.
 
@@ -44,9 +48,10 @@ Entregue:
 ## Regras
 
 - Não invente elementos de marca ausentes das referências.
+- Para uma peça de marca, escreva **ADEGA DOS 7** sempre em maiúsculas quando o nome completo aparecer em texto humano.
 - Não trate tema como mera coleção de enfeites; traduza-o por cor, luz, material, textura, atmosfera e ornamentos controlados.
 - Modele explicitamente quantidades e conexões de objetos funcionais.
 - Identifique riscos de anomalias de IA antes da produção.
-- Para variações da marca: **Recognition first. Theme second.**
+- Para variações da marca: **RECOGNITION FIRST. THEME SECOND.**
 
 Ao final, forneça uma seção **READY FOR PRODUCTION** resumindo tudo que o prompt final precisará conter.
