@@ -44,6 +44,7 @@ REQUIRED_PATHS = [
     ".agents/schemas/agent-asset-assessment.schema.json",
     ".github/copilot-instructions.md",
     ".github/instructions/assets.instructions.md",
+    ".github/instructions/documentation.instructions.md",
     ".github/agents/art-director.agent.md",
     ".github/agents/brand-guardian.agent.md",
     ".github/agents/design-qa.agent.md",
@@ -66,7 +67,8 @@ REQUIRED_PATHS = [
 
 TEXT_EXTENSIONS = {".md", ".json", ".yml", ".yaml", ".py", ".txt"}
 FORBIDDEN_ASSET_TOKENS = ("-final", "_final", "-definitivo", "-corrigido", "-v2", "-v3")
-BRAND_PATTERN = re.compile(r"adega dos 7", re.IGNORECASE)
+# Regex intentionally uses whitespace tokens so the validator does not match its own source literal.
+BRAND_PATTERN = re.compile(r"adega\s+dos\s+7", re.IGNORECASE)
 
 
 def error(errors: list[str], message: str) -> None:
