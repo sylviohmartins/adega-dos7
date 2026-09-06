@@ -24,16 +24,17 @@ Uma variação sazonal deve continuar imediatamente reconhecível como **ADEGA D
 
 ```text
 assets/logos/original.png
-        │
+        ├── camada temática sazonal controlada
+        │       └── assets/logos/natal-2026.png
         └── camada temática sazonal controlada
-                │
-                └── assets/logos/natal-2026.png
+                └── assets/logos/ano-novo-2027.png
 ```
 
 | Asset | Papel | Regra de uso |
 | --- | --- | --- |
 | `original.png` | identidade-base/master | fonte de verdade para novas adaptações |
 | `natal-2026.png` | variação sazonal | derivada do master; não redefine a identidade |
+| `ano-novo-2027.png` | variação sazonal | derivada do master; tratamento temático contido dentro do emblema |
 
 ## Princípios da identidade
 
@@ -165,7 +166,7 @@ Cada arte relevante pode ter um registro com:
 - dimensões, tamanho, hashes e blob remoto;
 - limitações de reprodutibilidade.
 
-Registros atuais: **[Logo original — Design Packet e provenance](docs/assets/original.md)** e **[Natal 2026 — Design Packet, plano de produção e provenance](docs/assets/natal-2026.md)**.
+Registros atuais: **[Logo original — Design Packet e provenance](docs/assets/original.md)**, **[Natal 2026 — Design Packet, plano de produção e provenance](docs/assets/natal-2026.md)** e **[Ano Novo 2027 — Design Packet e provenance](docs/assets/ano-novo-2027.md)**.
 
 Template: **[docs/templates/asset-design-record.md](docs/templates/asset-design-record.md)**.
 

@@ -1,0 +1,65 @@
+{
+  "taskId": "seasonal-logos-2027",
+  "objective": "Criar e validar a variação sazonal do logo da ADEGA DOS 7 para Ano Novo 2027, com transformação interna autêntica e diferenciação cromática em relação ao Natal.",
+  "status": "READY_FOR_HUMAN_REVIEW",
+  "requirements": [
+    {
+      "id": "new-year-asset",
+      "description": "Criar assets/logos/ano-novo-2027.png preservando a identidade-base e comunicando Ano Novo por uma camada temática controlada.",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["assets/logos/ano-novo-2027.png foi gerado com o miolo reconstruído: sem tracinhos laterais, barras paralelas, raios genéricos ou arcos ornamentais internos herdados do master; fogos, fumaça, confetes, serpentinas e champanhe ficaram contidos no emblema."],
+      "blocker": null
+    },
+    {
+      "id": "carnival-asset",
+      "description": "Criar a variação de Carnaval 2027.",
+      "status": "NOT_APPLICABLE",
+      "evidence": ["Escopo desta rodada foi restringido à pesquisa, revisão e criação da arte de Ano Novo 2027; nenhuma proposta de Carnaval será promovida com a direção anterior."],
+      "blocker": "Fora do escopo da rodada atual; poderá ser retomado posteriormente com o mesmo critério de transformação interna."
+    },
+    {
+      "id": "brand-integrity",
+      "description": "Manter o master original intacto, preservar texto, garrafa, número 7, narguilé e topologia de uma mangueira com uma piteira.",
+      "status": "DONE",
+      "evidence": ["assets/logos/original.png permaneceu intacto; revisão visual conferiu lettering ADEGA DOS, garrafa, 7, narguilé, uma mangueira e uma piteira."],
+      "blocker": null
+    },
+    {
+      "id": "provenance",
+      "description": "Registrar Design Packet, decisões, prompts, hashes, dimensões e limitações de reprodutibilidade para a arte de Ano Novo.",
+      "status": "DONE",
+      "evidence": ["docs/assets/ano-novo-2027.md registra Design Packet, pesquisa de paleta, prompts, iterações, critérios e hashes."],
+      "blocker": null
+    },
+    {
+      "id": "validation",
+      "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Ano Novo.",
+      "status": "DONE",
+      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
+      "blocker": null
+    }
+  ],
+  "decisions": [
+    "Usar assets/logos/original.png como matriz de identidade e natal-2026.png como referência direta do tratamento interno, sem redefinir a origem da marca.",
+    "Usar o nome ano-novo-2027.png conforme a convenção do repositório.",
+    "Não adicionar slogans, datas ou texto secundário dentro dos emblemas.",
+    "Pesquisa de mercado confirmou que dourado é recorrente no Réveillon, mas a diferenciação desta arte deve ser conduzida por carvão, branco/ivory e prata/cromado; dourado/champagne fica como acento de líquido, reflexos e fogos.",
+    "Remover os tracinhos, barras, raios e arcos decorativos internos herdados do master para que o tema ocupe o miolo de forma autêntica; preservar somente o arcabouço essencial da marca.",
+    "Trabalhar em branch própria e manter main sem escrita direta."
+  ],
+  "filesAffected": [
+    "assets/logos/ano-novo-2027.png",
+    "docs/assets/ano-novo-2027.md",
+    ".agents/runs/seasonal-logos-2027.json",
+    "README.md"
+  ],
+  "openRisks": [
+    "Geração de imagem pode introduzir alterações acidentais no lettering ou duplicar a mangueira/piteira.",
+    "O tema de Ano Novo pode ser confundido com decoração natalina se usar vermelho, verde ou excesso de enfeites."
+  ],
+  "nextSteps": [
+    "Aguardar revisão humana do PR #4 antes de qualquer promoção para main.",
+    "Retomar Carnaval em rodada separada, se solicitado."
+  ],
+  "lastCheckpoint": "2026-09-06T21:30:48Z"
+}
