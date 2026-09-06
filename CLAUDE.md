@@ -1,14 +1,7 @@
 # Claude Code project instructions
 
-`AGENTS.md` é a fonte de verdade para instruções gerais deste repositório.
+@AGENTS.md
 
-Leia `AGENTS.md` antes de realizar alterações.
+`AGENTS.md` é a fonte canônica de instruções do projeto e é importado acima para evitar duplicação/drift.
 
-Para tarefas visuais, use também:
-
-- `docs/design-system.md`;
-- `docs/image-construction-workflow.md`;
-- `.github/skills/image-production/SKILL.md`;
-- `docs/asset-management.md` quando houver manipulação de arquivos.
-
-Evite duplicar regras aqui. Se houver conflito, siga a instrução mais específica aplicável à tarefa e mantenha `AGENTS.md`/`docs/` como documentação canônica do projeto.
+Para tarefas visuais, carregue sob demanda os documentos apontados em `AGENTS.md`, especialmente o sistema de design, o workflow de construção de imagens e a política de assets.
