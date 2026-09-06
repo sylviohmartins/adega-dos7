@@ -1,0 +1,70 @@
+{
+  "$schema": "./schemas/agent-config.schema.json",
+  "version": 1,
+  "canonicalInstructions": "../AGENTS.md",
+  "execution": {
+    "strategy": "github-mediated-design",
+    "repositoryTransport": "github",
+    "validationTransport": "github-actions",
+    "workingBranchRequired": true,
+    "pullRequestRequired": true,
+    "autonomousPullRequestIteration": true,
+    "autonomousCiRecovery": true
+  },
+  "promotion": {
+    "targetBranch": "main",
+    "mode": "brand-risk-gated",
+    "productionDeployCoupledToTarget": false,
+    "automaticMergeEnabled": false,
+    "requireAllChecks": true,
+    "requireResolvedReviewThreads": true,
+    "requireHumanApprovalFor": [
+      "canonical-brand-invariant-change",
+      "approved-asset-replacement",
+      "new-primary-logo",
+      "external-agent-asset-vendoring",
+      "destructive-asset-removal"
+    ]
+  },
+  "context": {
+    "loadPolicy": "progressive",
+    "skillsRoot": "skills",
+    "rulesRoot": "rules",
+    "memoryRoot": "memory",
+    "activeRunsRoot": "runs",
+    "completionContract": "specs/completion-contract.md"
+  },
+  "commands": {
+    "validateAssets": "python scripts/validate_assets.py",
+    "repositoryCheck": "python scripts/validate_repository.py"
+  },
+  "safety": {
+    "allowDirectMainWrites": false,
+    "allowAutomaticPullRequestMerge": false,
+    "allowUnvettedExternalAgentAssets": false,
+    "allowTextApiForBinaryAssets": false,
+    "allowUnverifiedBrandFacts": false
+  },
+  "memory": {
+    "durableOnly": true,
+    "requireSourceOrEvidence": true,
+    "requireLastValidatedDate": true,
+    "forbidSecrets": true,
+    "forbidConversationTranscripts": true
+  },
+  "evidence": {
+    "requiredCompletionFields": [
+      "summary",
+      "filesChanged",
+      "checksExecuted",
+      "checksNotExecuted",
+      "requirementCoverage",
+      "brandImpact",
+      "designImpact",
+      "assetIntegrity",
+      "provenance",
+      "rollbackPath",
+      "openRisks"
+    ]
+  }
+}

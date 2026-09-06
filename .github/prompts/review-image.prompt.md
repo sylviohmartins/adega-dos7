@@ -1,18 +1,22 @@
+---
+description: Executa revisão adversarial de uma imagem da ADEGA DOS 7 antes da aprovação, priorizando identidade, coerência estrutural, legibilidade e produção.
+---
+
 # Revisão crítica de imagem
 
-Use este prompt para revisar qualquer imagem criada para a Adega dos 7 antes de aprová-la.
+Use este prompt para revisar qualquer imagem criada para a **ADEGA DOS 7** antes de aprová-la.
 
 ## Entrada
 
-- Imagem: `<anexar>`
-- Briefing/Design Packet: `<anexar ou referenciar>`
-- Uso principal: `<avatar, feed, impressão, embalagem, outro>`
+- Imagem: `${input:image}`
+- Briefing/Design Packet: `${input:designPacket}`
+- Uso principal: `${input:usage}`
 
 ## Tarefa
 
-Leia `AGENTS.md`, `docs/design-system.md` e `docs/image-construction-workflow.md`.
+Leia `AGENTS.md`, `.agents/skills/design-review/SKILL.md`, `.agents/rules/brand-integrity.md`, `docs/design-system.md` e `docs/image-construction-workflow.md`.
 
-Compare a imagem com o briefing e faça uma auditoria adversarial: procure ativamente erros, não apenas qualidades.
+Compare a imagem com o briefing e faça auditoria adversarial: procure ativamente erros, não apenas qualidades.
 
 Avalie:
 
@@ -31,11 +35,7 @@ Avalie:
 13. acessibilidade aplicável;
 14. produção/exportação.
 
-Classifique cada achado como:
-
-- **BLOQUEADOR** — impede aprovação;
-- **IMPORTANTE** — deve ser corrigido;
-- **POLIMENTO** — melhoria opcional/fina.
+Classifique cada achado como `BLOCKER`, `MAJOR`, `MINOR` ou `POLISH`.
 
 Para cada problema, indique:
 
@@ -44,4 +44,4 @@ Para cada problema, indique:
 - qual é a correção mínima recomendada;
 - o que deve ser preservado ao corrigir.
 
-Ao final, dê um veredito: `APROVAR`, `APROVAR APÓS CORREÇÕES` ou `REPROVAR/RECONSTRUIR`, com justificativa objetiva.
+Ao final, dê um veredito: `APPROVE`, `APPROVE_WITH_MINOR_POLISH`, `REVISE` ou `REJECT_AND_REPLAN`, com justificativa objetiva.

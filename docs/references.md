@@ -1,71 +1,88 @@
 # Referências de mercado e decisões de arquitetura
 
-Este repositório usa uma arquitetura de instruções em camadas para reduzir repetição, melhorar portabilidade entre agentes e manter critérios de design verificáveis.
+Última revisão: **2026-09-06**.
 
-## Agentes, instruções, skills e prompts
+Este repositório usa arquitetura de instruções em camadas, progressive disclosure e validações determinísticas para que diferentes agentes trabalhem na **ADEGA DOS 7** com o mesmo contrato operacional.
 
-### OpenAI / Codex
+## Referência interna: NEXO FINANCEIRO API
+
+Repositório: `sylviohmartins/nexo-financeiro-api`.
+
+Práticas arquiteturais adaptadas:
+
+- `AGENTS.md` como fonte canônica;
+- configuração declarativa em `.agents/config.json`;
+- separação entre `rules`, `specs`, `skills`, `memory`, `runs` e `schemas`;
+- execução GitHub-mediated com branch/PR/CI;
+- progressive context loading;
+- completion contract e evidência por requisito;
+- vetting de assets externos de agentes;
+- distinção entre memória durável e estado transitório.
+
+Não foram copiadas regras do domínio financeiro, Cloudflare, D1, API ou segurança específica do NEXO FINANCEIRO API. O modelo foi traduzido para branding, direção de arte, QA visual, provenance e integridade de assets.
+
+## OpenAI / Codex
 
 - Codex e `AGENTS.md`: https://openai.com/index/introducing-codex/
-- Loop/instruções do agente Codex: https://openai.com/index/unrolling-the-codex-agent-loop/
 
-Aplicação no repositório:
+Princípios aplicados:
 
-- `AGENTS.md` contém somente regras persistentes, mapa do repositório e checks obrigatórios;
-- detalhes extensos ficam em `docs/` para evitar inflar contexto sempre-on;
-- verificações programáticas são tratadas como parte do critério de conclusão.
+- `AGENTS.md` pode existir hierarquicamente e orientar o escopo de arquivos;
+- instruções mais próximas têm precedência dentro do escopo;
+- checks programáticos definidos nas instruções devem ser executados quando aplicáveis;
+- `AGENTS.md` deve manter instruções persistentes e o restante do conhecimento pode ser carregado progressivamente.
 
-### GitHub Copilot
+## GitHub Copilot
 
-- Custom instructions: https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions
+- Repository custom instructions: https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions
 - Customization cheat sheet: https://docs.github.com/en/copilot/reference/customization-cheat-sheet
-- Prompt files: https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file
-- Custom agents: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents
 - Agent Skills: https://docs.github.com/en/copilot/concepts/agents/about-agent-skills
+- Adding Agent Skills: https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills
+- Custom agents: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-custom-agents
+- Awesome Copilot: https://github.com/github/awesome-copilot
 
-Aplicação no repositório:
+Princípios aplicados:
 
 ```text
-.github/copilot-instructions.md        contexto persistente do repositório
-.github/instructions/*.instructions.md regras por caminho
-.github/prompts/*.prompt.md             tarefas reutilizáveis acionadas sob demanda
-.github/agents/*.agent.md               especialistas com processo próprio
-.github/skills/*/SKILL.md               conhecimento procedural carregado quando relevante
+.github/copilot-instructions.md       contexto Copilot always-on
+.github/instructions/*.instructions.md regras por path
+.github/prompts/*.prompt.md            tarefas reutilizáveis
+.github/agents/*.agent.md              especialistas
+.agents/skills/*/SKILL.md              workflows portáveis sob demanda
 ```
 
-### Agent Skills / progressive disclosure
+O GitHub documenta `.agents/skills`, `.github/skills` e `.claude/skills` como localizações válidas para skills de projeto. A **ADEGA DOS 7** usa `.agents/skills` como raiz canônica para reduzir acoplamento a fornecedor.
 
-- Anthropic — Agent Skills: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
+## Anthropic / Claude / Agent Skills
 
-Princípio adotado:
+- Prompting best practices: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables
+- Anthropic Skills: https://github.com/anthropics/skills
+- `brand-guidelines`: https://github.com/anthropics/skills/tree/main/skills/brand-guidelines
+- `canvas-design`: https://github.com/anthropics/skills/tree/main/skills/canvas-design
 
-- `name` e `description` ajudam o agente a decidir quando a skill é relevante;
-- `SKILL.md` contém o procedimento principal;
-- documentação complementar fica fora da skill e é carregada somente quando necessária.
+Princípios aplicados:
 
-Isso reduz contexto duplicado e permite que o mesmo conhecimento procedural seja reutilizado por diferentes tarefas/agentes.
+- instruções claras e critérios de sucesso explícitos;
+- investigação antes de afirmações sobre conteúdo não lido;
+- self-correction `draft -> review -> refine`;
+- subagentes apenas quando o trabalho for independente/isolável;
+- skills pequenas, específicas e carregadas quando relevantes;
+- separação entre filosofia/direção visual e execução final;
+- segunda passagem de refinamento antes de acumular elementos.
 
-### Claude Code
+Os skills `brand-guidelines` e `canvas-design` foram avaliados como referência arquitetural `ADAPT`, não incorporados diretamente. A licença upstream verificada é Apache-2.0. Veja `docs/agent-assets.md`.
 
-- Project memory / `CLAUDE.md`: https://docs.anthropic.com/en/docs/claude-code/memory
+## Gemini CLI
 
-Aplicação no repositório:
+- Context com `GEMINI.md`: https://google-gemini.github.io/gemini-cli/docs/cli/gemini-md.html
+- Configuração: https://google-gemini.github.io/gemini-cli/docs/get-started/configuration.html
+- Extensions: https://google-gemini.github.io/gemini-cli/docs/extensions/
 
-- `CLAUDE.md` é um adaptador curto;
-- ele encaminha para `AGENTS.md` e para a documentação canônica;
-- regras extensas não são duplicadas no arquivo de memória.
+Princípios aplicados:
 
-### Gemini CLI
-
-- Context files / `GEMINI.md`: https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md
-- Configuration/context filename support: https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md
-
-Aplicação no repositório:
-
-- `GEMINI.md` é um adaptador curto para o mesmo contexto canônico;
-- a arquitetura continua utilizável sem obrigar todos os agentes a interpretar uma configuração proprietária específica.
-
-A estratégia completa de portabilidade está em `docs/agent-compatibility.md`.
+- contexto hierárquico;
+- imports `@arquivo` para modularizar e evitar drift;
+- extensions/MCPs somente quando uma necessidade real justificar a superfície adicional.
 
 ## Design, UX, UI e acessibilidade
 
@@ -73,56 +90,47 @@ A estratégia completa de portabilidade está em `docs/agent-compatibility.md`.
 
 - Nielsen Norman Group — Visual Hierarchy: https://www.nngroup.com/videos/visual-hierarchy/
 
-Princípio adotado:
-
-- prioridade visual deve ser explícita por tamanho, contraste, posição, proximidade e agrupamento;
-- o Design Packet registra P1/P2/P3/P4 antes da geração.
+Aplicação: prioridade visual explícita por tamanho, contraste, posição, proximidade e agrupamento; Design Packet registra P1/P2/P3/P4 antes da produção.
 
 ### Cor e tipografia
 
 - Apple Human Interface Guidelines — Color: https://developer.apple.com/design/human-interface-guidelines/color
 - Apple Human Interface Guidelines — Typography: https://developer.apple.com/design/human-interface-guidelines/typography
 
-Princípios adotados:
-
-- usar cor com função definida;
-- evitar depender somente de cor para comunicar informação;
-- preservar contraste e legibilidade;
-- minimizar variedade tipográfica;
-- usar peso, tamanho e cor para sustentar hierarquia.
+Aplicação: cor com função definida, contraste e legibilidade; tipografia sustentando hierarquia com variedade controlada.
 
 ### Acessibilidade
 
 - WCAG 2.2: https://www.w3.org/TR/WCAG22/
-- Understanding Contrast Minimum: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum
+- Contrast Minimum: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum
 
-Princípios adotados:
-
-- avaliar contraste em conteúdo funcional;
-- não depender exclusivamente de cor;
-- evitar imagem de texto quando texto real puder cumprir a função;
-- reconhecer que logotipos são um caso especial, mas ainda devem funcionar nos contextos reais de uso.
+Aplicação: avaliar contraste de conteúdo funcional, não depender exclusivamente de cor e testar leitura em contexto real/tamanho reduzido.
 
 ## Engenharia do processo visual
 
-O fluxo do repositório combina princípios tradicionais de design com controles específicos para geração por IA:
+Fluxo adotado:
 
-1. briefing;
-2. invariantes/variáveis;
-3. topologia dos objetos;
-4. blueprint/wireframe;
-5. hierarquia e valores;
-6. cor/material/tipografia;
-7. prompt de produção;
-8. primeira saída tratada como rascunho;
-9. auditoria adversarial de anomalias;
-10. edição conservadora;
-11. testes de contexto;
-12. validação técnica do arquivo;
-13. versionamento e validação remota.
+1. descoberta;
+2. planejamento;
+3. pesquisa temática quando necessária;
+4. invariantes/variáveis;
+5. topologia dos objetos;
+6. Design Packet/blueprint;
+7. hierarquia e estudo de valores;
+8. cor/material/tipografia;
+9. prompt de produção;
+10. primeira saída tratada como rascunho;
+11. auditoria adversarial;
+12. edição conservadora;
+13. segunda passagem de refinamento;
+14. testes de contexto;
+15. validação técnica;
+16. provenance;
+17. branch/PR/CI;
+18. decisão de promoção.
 
-A intenção é aproximar o fluxo de IA de um processo profissional de direção de arte: **planejar antes de renderizar, revisar antes de aprovar e validar antes de versionar**.
+A intenção é aproximar agentes de IA de um processo profissional de design: **planejar antes de renderizar, revisar antes de aprovar, registrar antes de esquecer e validar antes de promover**.
 
-## Observação sobre fontes externas da marca
+## Fontes externas da marca
 
-Perfis de redes sociais podem exigir autenticação ou bloquear leitura automatizada. Quando uma informação de bio, endereço, catálogo, contato ou posicionamento não puder ser verificada diretamente, ela não deve ser promovida a fato no README. O repositório deve registrar apenas informações confirmadas ou explicitamente fornecidas pelo responsável da marca.
+Redes sociais podem exigir autenticação ou bloquear leitura automatizada. Informação de bio, endereço, catálogo, contato, política comercial ou posicionamento só deve entrar no repositório como fato quando puder ser verificada ou quando for explicitamente fornecida/aprovada pelo responsável da **ADEGA DOS 7**.

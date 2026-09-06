@@ -1,22 +1,25 @@
-# Copilot instructions — Adega dos 7
+# Copilot instructions — ADEGA DOS 7
 
-Este repositório gerencia identidade visual, prompts, agentes, skills e arquivos gráficos da **Adega dos 7**.
+Este repositório gerencia identidade visual, prompts, agentes, skills, provenance e arquivos gráficos da **ADEGA DOS 7**.
 
 ## Fonte de verdade
 
-- Regras gerais para agentes: `AGENTS.md`.
-- Sistema e disciplinas de design: `docs/design-system.md`.
-- Processo de construção/blueprint: `docs/image-construction-workflow.md`.
-- Manipulação segura de binários: `docs/asset-management.md`.
-- Prompt universal: `docs/image-generation-prompt.md`.
+- `AGENTS.md`: instruções gerais compartilháveis entre agentes.
+- `.agents/config.json`: política declarativa de execução, contexto e promoção.
+- `.agents/rules/`: regras por categoria de risco.
+- `.agents/skills/`: workflows especializados carregados sob demanda.
+- `docs/`: design system, construção visual, provenance e referências.
 
 ## Comportamento esperado
 
-- Para criação ou adaptação visual, não gere a solução final de imediato: construa primeiro o Design Packet/blueprint definido no processo.
-- Preserve invariantes da marca e altere apenas variáveis autorizadas pelo briefing.
-- Faça auditoria explícita de hierarquia, composição, tipografia, cor, acessibilidade, coerência física, anomalias de IA, small-size legibility e contexto de uso.
-- Não aceite texto incorreto, objetos funcionais duplicados, conexões sem origem/destino ou elementos decorativos sem função.
-- Imagens raster são binárias; não use APIs ou ações UTF-8 para gravá-las.
-- Quando `assets/` mudar, execute `python scripts/validate_assets.py` e valide também o arquivo remoto após o push.
-- Mantenha documentação enxuta e sem duplicação; quando uma regra já existir em `docs/`, faça referência a ela.
-- Use commits objetivos e sem sufixos de versão nos nomes dos assets.
+- Use progressive disclosure; não carregue todas as skills por padrão.
+- Para criação/adaptação visual, use `.agents/skills/image-production/SKILL.md`.
+- Antes de produzir arte final, construa Design Packet/blueprint e, quando o tema exigir pesquisa, Theme Research Pack.
+- Preserve invariantes da marca e escreva **ADEGA DOS 7** sempre em maiúsculas em texto humano.
+- Faça auditoria explícita de branding, hierarquia, composição, topologia, tipografia, cor, acessibilidade, anomalias de IA, contexto de uso e produção.
+- Para revisão final, use `.agents/skills/design-review/SKILL.md`.
+- Imagens raster são binárias; use `.agents/skills/asset-management/SKILL.md` e nunca grave PNG/JPG por APIs de conteúdo UTF-8.
+- Para assets externos de agente, use `.agents/skills/agent-asset-vetting/SKILL.md`; não instale por popularidade.
+- Trabalhe em branch + PR por padrão e trate CI como feedback de execução.
+- Execute `python scripts/validate_repository.py` antes de concluir mudanças de configuração/documentação e `python scripts/validate_assets.py` quando `assets/` mudar.
+- Mantenha adaptadores finos; não replique documentação extensa aqui.

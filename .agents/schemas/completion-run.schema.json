@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADEGA DOS 7 agent run",
+  "type": "object",
+  "required": ["taskId", "objective", "status", "requirements", "lastCheckpoint"],
+  "properties": {
+    "taskId": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "DONE"]},
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "status"],
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string"},
+          "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "DONE", "NOT_APPLICABLE"]},
+          "evidence": {"type": "array", "items": {"type": "string"}},
+          "blocker": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "decisions": {"type": "array", "items": {"type": "string"}},
+    "filesAffected": {"type": "array", "items": {"type": "string"}},
+    "openRisks": {"type": "array", "items": {"type": "string"}},
+    "nextSteps": {"type": "array", "items": {"type": "string"}},
+    "lastCheckpoint": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}
