@@ -1,6 +1,6 @@
-# Sistema de design visual — Adega dos 7
+# Sistema de design visual — ADEGA DOS 7
 
-Este documento organiza as disciplinas de design que devem ser consideradas na criação, revisão e adaptação das artes da Adega dos 7. Ele não substitui o julgamento de um designer; funciona como checklist e fonte de critérios para agentes e colaboradores.
+Este documento organiza as disciplinas de design que devem ser consideradas na criação, revisão e adaptação das artes da **ADEGA DOS 7**. Ele não substitui o julgamento de um designer; funciona como checklist e fonte de critérios para agentes e colaboradores.
 
 ## 1. Brand strategy e identidade visual
 
@@ -59,7 +59,7 @@ Objetivo: deixar evidente onde olhar primeiro, segundo e terceiro.
 
 Use tamanho, contraste, peso, posição, cor, proximidade e agrupamento para estabelecer prioridade.
 
-Para o logo da Adega dos 7, uma ordem típica pode ser:
+Para o logo da **ADEGA DOS 7**, uma ordem típica pode ser:
 
 1. assinatura/número **7** e garrafa central;
 2. nome **ADEGA DOS**;
@@ -213,7 +213,7 @@ Corrigir antes de aprovação final:
 - hierarquia fraca;
 - excesso de ruído;
 - contraste insuficiente;
-- ornaments competindo com marca;
+- ornamentos competindo com a marca;
 - leitura ruim em tamanho pequeno;
 - paleta desequilibrada;
 - geometria ou perspectiva inconsistente.
