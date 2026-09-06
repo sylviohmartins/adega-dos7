@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sylviohmartins/adega-dos7/.agents/schemas/agent-config.schema.json",
+  "title": "ADEGA DOS 7 agent configuration",
+  "type": "object",
+  "required": ["version", "canonicalInstructions", "execution", "promotion", "context", "commands", "safety", "memory", "evidence"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "canonicalInstructions": {"type": "string", "minLength": 1},
+    "execution": {
+      "type": "object",
+      "required": ["strategy", "repositoryTransport", "validationTransport", "workingBranchRequired", "pullRequestRequired"],
+      "additionalProperties": true
+    },
+    "promotion": {"type": "object", "additionalProperties": true},
+    "context": {"type": "object", "additionalProperties": true},
+    "commands": {"type": "object", "additionalProperties": {"type": "string"}},
+    "safety": {"type": "object", "additionalProperties": {"type": "boolean"}},
+    "memory": {"type": "object", "additionalProperties": true},
+    "evidence": {
+      "type": "object",
+      "required": ["requiredCompletionFields"],
+      "properties": {
+        "requiredCompletionFields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
