@@ -26,10 +26,10 @@ Aplicação no repositório:
 Aplicação no repositório:
 
 ```text
-.github/copilot-instructions.md       contexto persistente do repositório
+.github/copilot-instructions.md        contexto persistente do repositório
 .github/instructions/*.instructions.md regras por caminho
-.github/prompts/*.prompt.md            tarefas reutilizáveis acionadas sob demanda
-.github/agents/*.agent.md              especialistas com processo próprio
+.github/prompts/*.prompt.md             tarefas reutilizáveis acionadas sob demanda
+.github/agents/*.agent.md               especialistas com processo próprio
 .github/skills/*/SKILL.md               conhecimento procedural carregado quando relevante
 ```
 
@@ -44,6 +44,28 @@ Princípio adotado:
 - documentação complementar fica fora da skill e é carregada somente quando necessária.
 
 Isso reduz contexto duplicado e permite que o mesmo conhecimento procedural seja reutilizado por diferentes tarefas/agentes.
+
+### Claude Code
+
+- Project memory / `CLAUDE.md`: https://docs.anthropic.com/en/docs/claude-code/memory
+
+Aplicação no repositório:
+
+- `CLAUDE.md` é um adaptador curto;
+- ele encaminha para `AGENTS.md` e para a documentação canônica;
+- regras extensas não são duplicadas no arquivo de memória.
+
+### Gemini CLI
+
+- Context files / `GEMINI.md`: https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md
+- Configuration/context filename support: https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md
+
+Aplicação no repositório:
+
+- `GEMINI.md` é um adaptador curto para o mesmo contexto canônico;
+- a arquitetura continua utilizável sem obrigar todos os agentes a interpretar uma configuração proprietária específica.
+
+A estratégia completa de portabilidade está em `docs/agent-compatibility.md`.
 
 ## Design, UX, UI e acessibilidade
 
