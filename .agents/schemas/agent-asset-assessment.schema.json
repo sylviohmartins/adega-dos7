@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADEGA DOS 7 agent asset assessment",
+  "type": "object",
+  "required": ["name", "source", "category", "decision", "reviewedAt", "rationale"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "source": {"type": "string", "minLength": 1},
+    "category": {"enum": ["skill", "prompt", "agent", "plugin", "mcp", "hook", "extension", "harness", "other"]},
+    "license": {"type": ["string", "null"]},
+    "maintainer": {"type": ["string", "null"]},
+    "permissions": {"type": "array", "items": {"type": "string"}},
+    "overlap": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "benchmark": {"type": ["string", "null"]},
+    "decision": {"enum": ["ADOPT", "ADAPT", "TRIAL", "REJECT", "SUPERSEDED"]},
+    "rationale": {"type": "string", "minLength": 1},
+    "reviewedAt": {"type": "string", "format": "date"}
+  },
+  "additionalProperties": false
+}
