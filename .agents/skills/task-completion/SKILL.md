@@ -27,6 +27,8 @@ Siga `../../specs/completion-contract.md`.
 6. antes da conclusão, aplique o gate final do completion contract;
 7. arquive ou remova estado transitório conforme a política do projeto quando a tarefa terminar.
 
+Use `READY_FOR_HUMAN_REVIEW` quando a execução automatizada e os checks estiverem concluídos, mas uma aprovação humana exigida ainda não tiver sido registrada. Depois de uma decisão humana verificável, promova o estado para `DONE`.
+
 ## Regra
 
 `DONE` sem evidência verificável é `IN_PROGRESS`.

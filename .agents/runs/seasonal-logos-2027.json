@@ -1,13 +1,13 @@
 {
   "taskId": "seasonal-logos-2027",
   "objective": "Criar e validar a variação sazonal do logo da ADEGA DOS 7 para Ano Novo 2027, com transformação interna autêntica e diferenciação cromática em relação ao Natal.",
-  "status": "READY_FOR_HUMAN_REVIEW",
+  "status": "DONE",
   "requirements": [
     {
       "id": "new-year-asset",
       "description": "Criar assets/logos/ano-novo-2027.png preservando a identidade-base e comunicando Ano Novo por uma camada temática controlada.",
-      "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["assets/logos/ano-novo-2027.png foi gerado com o miolo reconstruído: sem tracinhos laterais, barras paralelas, raios genéricos ou arcos ornamentais internos herdados do master; fogos, fumaça, confetes, serpentinas e champanhe ficaram contidos no emblema."],
+      "status": "DONE",
+      "evidence": ["assets/logos/ano-novo-2027.png foi gerado com o miolo reconstruído: sem tracinhos laterais, barras paralelas, raios genéricos ou arcos ornamentais internos herdados do master; fogos, fumaça, confetes, serpentinas e champanhe ficaram contidos no emblema; PR #4 foi mesclado na main em 2026-09-06 por sylviohmartins."],
       "blocker": null
     },
     {
@@ -42,7 +42,7 @@
       "id": "validation",
       "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Ano Novo.",
       "status": "DONE",
-      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
+      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados e mesclados na main pelo responsável sylviohmartins; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
       "blocker": null
     }
   ],
@@ -69,14 +69,17 @@
     ".github/prompts/record-provenance.prompt.md",
     "docs/design-system.md",
     "docs/image-construction-workflow.md",
-    "docs/templates/asset-design-record.md"
+    "docs/templates/asset-design-record.md",
+    ".agents/schemas/completion-run.schema.json",
+    ".agents/specs/completion-contract.md",
+    ".agents/skills/task-completion/SKILL.md",
+    "scripts/validate_repository.py"
   ],
   "openRisks": [
     "Geração de imagem pode introduzir alterações acidentais no lettering ou duplicar a mangueira/piteira.",
     "O tema de Ano Novo pode ser confundido com decoração natalina se usar vermelho, verde ou excesso de enfeites."
   ],
   "nextSteps": [
-    "Aguardar revisão humana do PR #4 antes de qualquer promoção para main.",
     "Quando Carnaval for solicitado, abrir uma rodada própria, iniciar pelo master original, pesquisar referências atuais e preencher o contrato de transformação interna antes da geração."
   ],
   "lastCheckpoint": "2026-09-07T02:16:54Z"

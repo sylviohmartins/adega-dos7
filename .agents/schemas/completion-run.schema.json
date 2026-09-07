@@ -6,7 +6,7 @@
   "properties": {
     "taskId": {"type": "string", "minLength": 1},
     "objective": {"type": "string", "minLength": 1},
-    "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "DONE"]},
+    "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "READY_FOR_HUMAN_REVIEW", "DONE"]},
     "requirements": {
       "type": "array",
       "items": {
@@ -15,7 +15,7 @@
         "properties": {
           "id": {"type": "string"},
           "description": {"type": "string"},
-          "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "DONE", "NOT_APPLICABLE"]},
+          "status": {"enum": ["PENDING", "IN_PROGRESS", "BLOCKED", "READY_FOR_HUMAN_REVIEW", "DONE", "NOT_APPLICABLE"]},
           "evidence": {"type": "array", "items": {"type": "string"}},
           "blocker": {"type": ["string", "null"]}
         },

@@ -233,7 +233,7 @@ shape drift or AI artifact before the final export.
 
 ## Revisão adversarial e critérios de contexto
 
-Decisão: `READY_FOR_HUMAN_REVIEW` para esta variação sazonal, condicionada à aprovação humana prevista pela política de promoção de assets de marca.
+Decisão: `DONE` para esta variação sazonal. O PR #4 foi mesclado na `main` em 2026-09-06 por `sylviohmartins`, que é o responsável da marca identificado no repositório; essa ação constitui a evidência remota de promoção humana registrada para este asset.
 
 - `ADEGA DOS` permanece legível e sem texto inventado;
 - garrafa e `7` continuam no centro da hierarquia;
@@ -263,7 +263,8 @@ Resultado local: todos os comandos passaram; o PNG é decodificável, tem 1254 �
 
 Resultado remoto:
 
-- [PR #4 — feat(brand): add authentic New Year 2027 logo](https://github.com/sylviohmartins/adega-dos7/pull/4) foi aberto contra `main`;
+- [PR #4 — feat(brand): add authentic New Year 2027 logo](https://github.com/sylviohmartins/adega-dos7/pull/4) foi aberto contra `main` e mesclado em 2026-09-06 por `sylviohmartins`;
+- merge commit na `main`: `30f169ce8bbcd4be7cddbdc351bb99477de321f5`;
 - commit remoto da branch: `60244cb307758db59803a673a69382f8a36f1502`;
 - blob remoto de `assets/logos/ano-novo-2027.png`: `d1974493a74ffd2f8736cea48b8952de1766c1f8`;
 - `fetch_file` remoto em Base64, normalizado sem quebras de linha, coincidiu exatamente com o arquivo local;
