@@ -1,13 +1,13 @@
 {
   "taskId": "seasonal-logos-2027",
   "objective": "Criar e validar a variação sazonal do logo da ADEGA DOS 7 para Ano Novo 2027, com transformação interna autêntica e diferenciação cromática em relação ao Natal.",
-  "status": "READY_FOR_HUMAN_REVIEW",
+  "status": "DONE",
   "requirements": [
     {
       "id": "new-year-asset",
       "description": "Criar assets/logos/ano-novo-2027.png preservando a identidade-base e comunicando Ano Novo por uma camada temática controlada.",
-      "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["assets/logos/ano-novo-2027.png foi gerado com o miolo reconstruído: sem tracinhos laterais, barras paralelas, raios genéricos ou arcos ornamentais internos herdados do master; fogos, fumaça, confetes, serpentinas e champanhe ficaram contidos no emblema."],
+      "status": "DONE",
+      "evidence": ["assets/logos/ano-novo-2027.png foi gerado com o miolo reconstruído: sem tracinhos laterais, barras paralelas, raios genéricos ou arcos ornamentais internos herdados do master; fogos, fumaça, confetes, serpentinas e champanhe ficaram contidos no emblema; PR #4 foi mesclado na main em 2026-09-06 por sylviohmartins."],
       "blocker": null
     },
     {
@@ -16,6 +16,13 @@
       "status": "NOT_APPLICABLE",
       "evidence": ["Escopo desta rodada foi restringido à pesquisa, revisão e criação da arte de Ano Novo 2027; nenhuma proposta de Carnaval será promovida com a direção anterior."],
       "blocker": "Fora do escopo da rodada atual; poderá ser retomado posteriormente com o mesmo critério de transformação interna."
+    },
+    {
+      "id": "seasonal-workflow-reuse",
+      "description": "Deixar o fluxo reutilizável para novos temas sazonais, incluindo Carnaval, sem repetir as falhas de preservação excessiva do miolo ou de simples sobreposição decorativa.",
+      "status": "DONE",
+      "evidence": ["Regras, skills, prompts, workflow, template de provenance e README passaram a exigir o contrato PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, a medição dos arcos estruturais, a reconstrução interna orientada por pesquisa própria e a diferenciação em relação às campanhas existentes; os validadores técnicos continuam genéricos para qualquer asset nomeado como <tema>-<ano>."] ,
+      "blocker": null
     },
     {
       "id": "brand-integrity",
@@ -35,7 +42,7 @@
       "id": "validation",
       "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Ano Novo.",
       "status": "DONE",
-      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
+      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados e mesclados na main pelo responsável sylviohmartins; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
       "blocker": null
     }
   ],
@@ -45,21 +52,35 @@
     "Não adicionar slogans, datas ou texto secundário dentro dos emblemas.",
     "Pesquisa de mercado confirmou que dourado é recorrente no Réveillon, mas a diferenciação desta arte deve ser conduzida por carvão, branco/ivory e prata/cromado; dourado/champagne fica como acento de líquido, reflexos e fogos.",
     "Remover os tracinhos, barras, raios e arcos decorativos internos herdados do master para que o tema ocupe o miolo de forma autêntica; preservar somente o arcabouço essencial da marca.",
+    "Generalizar o aprendizado para novos temas: classificar PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, pesquisar os códigos do evento atual, não herdar paleta/ornamentos de campanhas anteriores e manter a transformação dentro do emblema.",
     "Trabalhar em branch própria e manter main sem escrita direta."
   ],
   "filesAffected": [
     "assets/logos/ano-novo-2027.png",
     "docs/assets/ano-novo-2027.md",
     ".agents/runs/seasonal-logos-2027.json",
-    "README.md"
+    "README.md",
+    ".agents/rules/brand-integrity.md",
+    ".agents/skills/image-production/SKILL.md",
+    ".agents/skills/design-review/SKILL.md",
+    ".github/prompts/create-themed-image.prompt.md",
+    ".github/prompts/design-blueprint.prompt.md",
+    ".github/prompts/review-image.prompt.md",
+    ".github/prompts/record-provenance.prompt.md",
+    "docs/design-system.md",
+    "docs/image-construction-workflow.md",
+    "docs/templates/asset-design-record.md",
+    ".agents/schemas/completion-run.schema.json",
+    ".agents/specs/completion-contract.md",
+    ".agents/skills/task-completion/SKILL.md",
+    "scripts/validate_repository.py"
   ],
   "openRisks": [
     "Geração de imagem pode introduzir alterações acidentais no lettering ou duplicar a mangueira/piteira.",
     "O tema de Ano Novo pode ser confundido com decoração natalina se usar vermelho, verde ou excesso de enfeites."
   ],
   "nextSteps": [
-    "Aguardar revisão humana do PR #4 antes de qualquer promoção para main.",
-    "Retomar Carnaval em rodada separada, se solicitado."
+    "Quando Carnaval for solicitado, abrir uma rodada própria, iniciar pelo master original, pesquisar referências atuais e preencher o contrato de transformação interna antes da geração."
   ],
-  "lastCheckpoint": "2026-09-06T21:30:48Z"
+  "lastCheckpoint": "2026-09-07T02:16:54Z"
 }

@@ -22,6 +22,14 @@ Encontrar falhas concretas antes que uma arte seja promovida como oficial.
 9. **Context of use** — avatar, feed, impressão, fundo, recorte, merchandising.
 10. **Production quality** — nitidez, bordas, artefatos, resolução, compressão e exportação.
 
+Para logos sazonais, faça uma comparação explícita entre o master e as variações aprovadas:
+
+- os arcos estruturais mantêm quantidade, raio e posição relativa;
+- lettering, garrafa/7, narguilé/rosh, fumaça característica e uma única mangueira com piteira continuam íntegros;
+- tracinhos, raios, barras e preenchimentos internos antigos foram limpos ou reconstruídos quando não definem a marca;
+- o novo tema é percebido pela transformação interna, sem depender de decoração externa;
+- paleta, materiais e códigos do tema não são uma cópia automática de outra campanha.
+
 ## Método
 
 - Compare com a referência aprovada lado a lado quando possível.

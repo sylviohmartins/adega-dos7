@@ -20,7 +20,7 @@ Uma variação sazonal deve continuar imediatamente reconhecível como **ADEGA D
 
 ## Linhagem dos assets
 
-`assets/logos/original.png` é a matriz canônica e permanente da identidade visual. Toda variação temática deve partir dela, preservar seus invariantes e adicionar somente uma camada temática controlada.
+`assets/logos/original.png` é a matriz canônica e permanente da identidade visual. Toda variação temática deve partir dela, preservar seu arcabouço e reconstruir internamente uma camada temática controlada.
 
 ```text
 assets/logos/original.png
@@ -46,8 +46,10 @@ Elementos centrais atualmente tratados como referência:
 - garrafa como elemento central;
 - narguilé como elemento característico;
 - mangueira e piteira com lógica visual/física coerente;
+- arcabouço circular e arcos estruturais preservados na mesma quantidade, raio e posição relativa;
+- fumaça característica do rosh preservada quando fizer parte da referência aprovada;
 - acabamento detalhado e premium;
-- variações temáticas aplicadas de forma controlada.
+- variações temáticas reconstruídas internamente, sem herdar automaticamente o miolo, a paleta ou os ornamentos de outra campanha.
 
 Regras completas: **[.agents/rules/brand-integrity.md](.agents/rules/brand-integrity.md)** e **[docs/design-system.md](docs/design-system.md)**.
 
@@ -82,6 +84,8 @@ VALIDAÇÃO REMOTA
 ```
 
 O **Design Packet** funciona como a planta do designer: registra hierarquia, composição, zonas do canvas, relações entre objetos, paleta, tipografia, safe areas, negative space e critérios de aprovação antes da produção.
+
+Para uma variação sazonal, ele também registra o contrato `PRESERVAR / LIMPAR / RECONSTRUIR / LIMITE`: mantém o arcabouço essencial do master, limpa o resíduo interno não estrutural e reconstrói o miolo com códigos visuais pesquisados para o tema atual. A transformação fica dentro do emblema, salvo exceção aprovada.
 
 Processo completo: **[docs/image-construction-workflow.md](docs/image-construction-workflow.md)**.
 
@@ -148,6 +152,8 @@ Em `.github/prompts/`:
 - `vet-agent-asset.prompt.md` — avalia capacidade externa antes de adoção.
 
 Prompt mestre universal: **[docs/image-generation-prompt.md](docs/image-generation-prompt.md)**.
+
+O prompt de produção é reutilizável para novos temas, inclusive Carnaval: basta fornecer o Theme Research Pack e o contrato de transformação do tema solicitado. Não é necessário criar um prompt ou skill específico por evento.
 
 ## Provenance: como cada imagem foi criada
 

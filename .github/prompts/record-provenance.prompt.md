@@ -9,6 +9,7 @@ Reúna apenas evidências verificáveis do repositório e do trabalho realizado.
 - objetivo e contexto;
 - referências e fontes;
 - invariantes/variáveis;
+- contrato de transformação interna (`PRESERVAR / LIMPAR / RECONSTRUIR / LIMITE`);
 - Theme Research Pack, se houver;
 - Design Packet/blueprint;
 - topologia de objetos;
@@ -19,6 +20,7 @@ Reúna apenas evidências verificáveis do repositório e do trabalho realizado.
 - critérios de aprovação;
 - formato, dimensões, tamanho, hash e blob remoto quando disponíveis;
 - limitações de reprodutibilidade;
+- diferenciação em relação às variações sazonais existentes;
 - data da última validação.
 
 Não invente histórico ausente. Marque lacunas como `UNKNOWN` ou `NOT_RECORDED`.

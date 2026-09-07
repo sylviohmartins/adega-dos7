@@ -28,6 +28,34 @@ SHA-256: <quando disponível>
 - referências secundárias: <opcional>;
 - contexto/campanha: <tema/ano/evento>.
 
+## Contrato de transformação interna
+
+Preencha esta seção para qualquer variação temática de um logo ou emblema.
+
+### PRESERVAR
+
+- contorno externo: <...>;
+- lettering/texto: <...>;
+- objetos e silhuetas: <garrafa, 7, narguilé/rosh, fumaça, etc.>;
+- topologia: <quantidades, conexões, mangueira/piteira>;
+- arcos estruturais: <quantidade, raios, centro/posição relativa>.
+
+### LIMPAR
+
+- <tracinhos, raios, barras, ornamentos de rótulo ou outros resíduos internos não estruturais>.
+
+### RECONSTRUIR
+
+- linguagem visual do tema: <...>;
+- paleta/materialidade próprias: <...>;
+- elementos internos novos e sua função: <...>.
+
+### LIMITE
+
+- área externa do emblema: <deve permanecer limpa, salvo exceção registrada>;
+- elementos proibidos: <...>;
+- variações anteriores que não devem ser copiadas: <...>.
+
 ## Invariantes
 
 - ...

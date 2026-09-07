@@ -10,6 +10,7 @@ Cada requisito deve ter um dos estados:
 - `IN_PROGRESS` — há trabalho em curso;
 - `BLOCKED` — existe impedimento concreto registrado;
 - `DONE` — há evidência verificável de atendimento;
+- `READY_FOR_HUMAN_REVIEW` — trabalho e checks automatizados concluídos, mas existe gate humano explícito pendente; não equivale a promoção nem a aprovação final;
 - `NOT_APPLICABLE` — requisito explicitamente fora do escopo com justificativa.
 
 ## Evidência de `DONE`
@@ -42,10 +43,12 @@ Para trabalhos prolongados, registre em `.agents/runs/<task-id>.json`:
 
 Antes de declarar conclusão:
 
-1. nenhum requisito material pode permanecer `PENDING` ou `IN_PROGRESS`;
+1. nenhum requisito material pode permanecer `PENDING` ou `IN_PROGRESS`; `READY_FOR_HUMAN_REVIEW` só pode permanecer quando o gate humano estiver explicitamente pendente;
 2. `BLOCKED` deve conter motivo e impacto claros;
 3. todos os checks obrigatórios devem ter evidência ou limitação explícita;
 4. impactos de marca/design e integridade de assets devem estar registrados;
 5. a decisão de promoção deve respeitar `.agents/rules/change-promotion.md`.
+
+Após a aprovação humana do gate, atualize o requisito e o run para `DONE` e registre a evidência da decisão.
 
 Uma síntese de conversa não substitui o estado estruturado da tarefa.

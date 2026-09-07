@@ -58,10 +58,27 @@ Crie uma tabela:
 | Tipo | Exemplos | Regra |
 | --- | --- | --- |
 | Invariante | nome, número 7, garrafa, narguilé | preservar |
+| Estrutural do emblema | contorno, lettering, topologia funcional, arcos estruturais | preservar quantidade, raio e posição relativa |
 | Variável controlada | paleta, luz, ornamentos, textura | adaptar ao tema |
+| Resíduo interno | tracinhos, raios, barras, ornamentos de rótulo e padrões herdados | limpar ou reconstruir quando não definirem a marca |
 | Decorativo | brilhos, folhas, pequenas peças | remover se gerar ruído |
 
 Essa separação evita que uma variação temática vire redesign.
+
+### 2.1 Contrato de transformação interna para logos sazonais
+
+Antes do prompt de produção, escreva quatro listas. Elas impedem que a IA trate todos os pixels do master como obrigatórios ou apenas sobreponha enfeites:
+
+```text
+PRESERVAR  = contorno, lettering, garrafa/7, narguilé/rosh, fumaça característica,
+             uma mangueira com uma piteira e arcos estruturais existentes;
+LIMPAR     = tracinhos laterais, raios, barras, ornamentos de rótulo e preenchimentos
+             internos herdados que não sejam parte do arcabouço;
+RECONSTRUIR = miolo, paleta, materiais e símbolos necessários para o tema atual;
+LIMITE     = toda a transformação permanece dentro do emblema, salvo exceção aprovada.
+```
+
+Para `PRESERVAR`, o Design Packet deve registrar a quantidade, o raio e a posição relativa dos arcos. Para `RECONSTRUIR`, o Theme Research Pack deve explicar quais códigos visuais tornam o tema reconhecível no mundo real e quais clichês ou associações devem ser evitados. A direção escolhida também deve ser comparada com Natal, Ano Novo e demais variações existentes; nenhuma paleta ou ornamento é herdado automaticamente.
 
 ## Etapa 3 — Modelar a semântica e a topologia dos objetos
 
@@ -220,8 +237,9 @@ O prompt final deve responder:
 6. como os objetos se conectam;
 7. quais cores/materiais usar;
 8. qual texto exato usar;
-9. o que evitar;
-10. como reconhecer sucesso.
+9. o que preservar, limpar e reconstruir dentro do emblema;
+10. o que evitar, inclusive elementos fora do emblema e códigos de outras campanhas;
+11. como reconhecer sucesso no primeiro olhar.
 
 ## Etapa 6 — Primeira saída é rascunho, não conclusão
 
@@ -246,6 +264,7 @@ Melhorias finas.
 Faça uma varredura específica:
 
 - quantidade de objetos;
+- contagem, raio e posição dos arcos estruturais;
 - mãos/anatomia quando houver pessoas;
 - cabos/mangueiras;
 - piteiras/bocais;
@@ -259,6 +278,8 @@ Faça uma varredura específica:
 - perspectiva inconsistente;
 - detalhes que parecem outra marca/tema.
 
+Em logo sazonal, o finding também deve responder: o miolo foi realmente reconstruído para o tema ou apenas recebeu enfeites? O canvas externo permaneceu limpo? A paleta e os materiais pertencem ao tema atual ou foram carregados de outra variação?
+
 ## Etapa 8 — Corrigir por edição localizada
 
 Quando 70–90% da arte estiver correta, prefira editar a região problemática.
@@ -267,10 +288,11 @@ Estrutura da instrução:
 
 ```text
 PRESERVE: regiões A, B, C.
-REMOVA: elemento X.
-RECONSTRUA: área X seguindo continuidade de Y.
+REMOVA: resíduos internos X, Y.
+RECONSTRUA: o miolo temático seguindo continuidade de Y.
 NÃO TOQUE: texto, garrafa, número 7, etc.
-VALIDE: condição objetiva após a edição.
+MANTENHA DENTRO: do emblema, sem decoração externa.
+VALIDE: arcos, topologia, leitura do tema e condição objetiva após a edição.
 ```
 
 ## Etapa 9 — Testes de contexto

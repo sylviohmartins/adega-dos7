@@ -6,7 +6,7 @@ Este documento organiza as disciplinas de design que devem ser consideradas na c
 
 Objetivo: preservar reconhecimento e consistência ao longo de campanhas e temas.
 
-Fonte de verdade: `assets/logos/original.png` é a identidade-base permanente. Uma peça sazonal, como `assets/logos/natal-2026.png`, deve ser construída como derivação controlada desse master, sem redefinir garrafa, número 7, lettering, narguilé, mangueira, molduras ou lógica cromática principal.
+Fonte de verdade: `assets/logos/original.png` é a identidade-base permanente. Uma peça sazonal, como `assets/logos/natal-2026.png`, deve ser construída como derivação controlada desse master, preservando o arcabouço estrutural do emblema — lettering, garrafa, número 7, narguilé, mangueira, fumaça característica e arcos estruturais — sem tratar a paleta ou os ornamentos internos herdados como invariantes.
 
 Perguntas de controle:
 
@@ -18,6 +18,20 @@ Perguntas de controle:
 Princípio:
 
 > **Recognition first. Theme second.**
+
+### Contrato de transformação interna
+
+Em variações sazonais, registre explicitamente o que permanece, o que sai e o que será reconstruído:
+
+| Camada | Tratamento padrão |
+| --- | --- |
+| Arcabouço | Preservar contorno, lettering, objetos principais, topologia funcional e arcos estruturais na mesma quantidade, raio e posição relativa do master. |
+| Resíduo interno | Limpar tracinhos laterais, raios, barras, ornamentos de rótulo e padrões genéricos que não definem a marca. |
+| Tema | Reconstruir o miolo com códigos visuais pesquisados para o evento, sem apenas sobrepor enfeites. |
+| Paleta/materialidade | Definir novamente para cada tema; não herdar automaticamente Natal, Ano Novo ou outra campanha. |
+| Fronteira | Manter o tratamento dentro do emblema e as áreas externas limpas, salvo pedido explícito. |
+
+O Design Packet deve informar a quantidade, o raio e o posicionamento relativo dos arcos que serão preservados. Não adicionar um arco novo nem recuperar ornamento interno apenas porque ele aparece na imagem de referência.
 
 ## 2. Direção de arte
 

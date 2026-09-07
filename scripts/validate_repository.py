@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -69,6 +70,8 @@ TEXT_EXTENSIONS = {".md", ".json", ".yml", ".yaml", ".py", ".txt"}
 FORBIDDEN_ASSET_TOKENS = ("-final", "_final", "-definitivo", "-corrigido", "-v2", "-v3")
 # Regex intentionally uses whitespace tokens so the validator does not match its own source literal.
 BRAND_PATTERN = re.compile(r"adega\s+dos\s+7", re.IGNORECASE)
+RUN_STATUSES = {"PENDING", "IN_PROGRESS", "BLOCKED", "READY_FOR_HUMAN_REVIEW", "DONE"}
+REQUIREMENT_STATUSES = RUN_STATUSES | {"NOT_APPLICABLE"}
 
 
 def error(errors: list[str], message: str) -> None:
@@ -139,6 +142,53 @@ def check_json(errors: list[str]) -> None:
             error(errors, ".agents/config.json: context.skillsRoot must be skills")
 
 
+def check_run_files(errors: list[str]) -> None:
+    runs_dir = ROOT / ".agents/runs"
+    if not runs_dir.exists():
+        return
+
+    required = {"taskId", "objective", "status", "requirements", "lastCheckpoint"}
+    for path in sorted(runs_dir.glob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue  # check_json reports the parse error with the file context
+
+        rel = path.relative_to(ROOT)
+        if not isinstance(data, dict):
+            error(errors, f"{rel}: run must be a JSON object")
+            continue
+
+        missing = sorted(required - data.keys())
+        if missing:
+            error(errors, f"{rel}: missing required run fields: {', '.join(missing)}")
+
+        status = data.get("status")
+        if status not in RUN_STATUSES:
+            error(errors, f"{rel}: invalid run status {status!r}")
+
+        requirements = data.get("requirements")
+        if not isinstance(requirements, list):
+            error(errors, f"{rel}: requirements must be a list")
+        else:
+            for index, requirement in enumerate(requirements):
+                if not isinstance(requirement, dict):
+                    error(errors, f"{rel}: requirement {index} must be an object")
+                    continue
+                if not requirement.get("id"):
+                    error(errors, f"{rel}: requirement {index} needs an id")
+                requirement_status = requirement.get("status")
+                if requirement_status not in REQUIREMENT_STATUSES:
+                    error(errors, f"{rel}: invalid status for requirement {requirement.get('id')!r}: {requirement_status!r}")
+
+        checkpoint = data.get("lastCheckpoint")
+        if isinstance(checkpoint, str):
+            try:
+                datetime.fromisoformat(checkpoint.replace("Z", "+00:00"))
+            except ValueError:
+                error(errors, f"{rel}: lastCheckpoint must be an ISO-8601 date-time")
+
+
 def check_brand_casing(errors: list[str]) -> None:
     for path in iter_text_files():
         try:
@@ -204,6 +254,7 @@ def main() -> int:
     errors: list[str] = []
     check_required_paths(errors)
     check_json(errors)
+    check_run_files(errors)
     check_brand_casing(errors)
     check_skills(errors)
     check_github_customizations(errors)
