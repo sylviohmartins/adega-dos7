@@ -18,6 +18,13 @@
       "blocker": "Fora do escopo da rodada atual; poderá ser retomado posteriormente com o mesmo critério de transformação interna."
     },
     {
+      "id": "seasonal-workflow-reuse",
+      "description": "Deixar o fluxo reutilizável para novos temas sazonais, incluindo Carnaval, sem repetir as falhas de preservação excessiva do miolo ou de simples sobreposição decorativa.",
+      "status": "DONE",
+      "evidence": ["Regras, skills, prompts, workflow, template de provenance e README passaram a exigir o contrato PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, a medição dos arcos estruturais, a reconstrução interna orientada por pesquisa própria e a diferenciação em relação às campanhas existentes; os validadores técnicos continuam genéricos para qualquer asset nomeado como <tema>-<ano>."] ,
+      "blocker": null
+    },
+    {
       "id": "brand-integrity",
       "description": "Manter o master original intacto, preservar texto, garrafa, número 7, narguilé e topologia de uma mangueira com uma piteira.",
       "status": "DONE",
@@ -45,13 +52,24 @@
     "Não adicionar slogans, datas ou texto secundário dentro dos emblemas.",
     "Pesquisa de mercado confirmou que dourado é recorrente no Réveillon, mas a diferenciação desta arte deve ser conduzida por carvão, branco/ivory e prata/cromado; dourado/champagne fica como acento de líquido, reflexos e fogos.",
     "Remover os tracinhos, barras, raios e arcos decorativos internos herdados do master para que o tema ocupe o miolo de forma autêntica; preservar somente o arcabouço essencial da marca.",
+    "Generalizar o aprendizado para novos temas: classificar PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, pesquisar os códigos do evento atual, não herdar paleta/ornamentos de campanhas anteriores e manter a transformação dentro do emblema.",
     "Trabalhar em branch própria e manter main sem escrita direta."
   ],
   "filesAffected": [
     "assets/logos/ano-novo-2027.png",
     "docs/assets/ano-novo-2027.md",
     ".agents/runs/seasonal-logos-2027.json",
-    "README.md"
+    "README.md",
+    ".agents/rules/brand-integrity.md",
+    ".agents/skills/image-production/SKILL.md",
+    ".agents/skills/design-review/SKILL.md",
+    ".github/prompts/create-themed-image.prompt.md",
+    ".github/prompts/design-blueprint.prompt.md",
+    ".github/prompts/review-image.prompt.md",
+    ".github/prompts/record-provenance.prompt.md",
+    "docs/design-system.md",
+    "docs/image-construction-workflow.md",
+    "docs/templates/asset-design-record.md"
   ],
   "openRisks": [
     "Geração de imagem pode introduzir alterações acidentais no lettering ou duplicar a mangueira/piteira.",
@@ -59,7 +77,7 @@
   ],
   "nextSteps": [
     "Aguardar revisão humana do PR #4 antes de qualquer promoção para main.",
-    "Retomar Carnaval em rodada separada, se solicitado."
+    "Quando Carnaval for solicitado, abrir uma rodada própria, iniciar pelo master original, pesquisar referências atuais e preencher o contrato de transformação interna antes da geração."
   ],
-  "lastCheckpoint": "2026-09-06T21:30:48Z"
+  "lastCheckpoint": "2026-09-07T02:16:54Z"
 }

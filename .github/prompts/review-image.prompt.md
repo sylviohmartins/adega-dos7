@@ -35,6 +35,14 @@ Avalie:
 13. acessibilidade aplicável;
 14. produção/exportação.
 
+Se for uma variação sazonal, compare lado a lado com `assets/logos/original.png` e com as versões sazonais relevantes. Verifique especificamente:
+
+- quantidade, raio e posição relativa dos arcos estruturais;
+- integridade do lettering, garrafa/7, narguilé/rosh, fumaça característica e uma única mangueira com piteira;
+- remoção/reconstrução de tracinhos, raios, barras e preenchimentos internos que não definem a marca;
+- transformação temática real dentro do emblema, sem decoração adicionada apenas por cima ou fora dele;
+- paleta e códigos visuais próprios do tema, sem cópia automática de outra campanha.
+
 Classifique cada achado como `BLOCKER`, `MAJOR`, `MINOR` ou `POLISH`.
 
 Para cada problema, indique:

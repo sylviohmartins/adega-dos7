@@ -29,6 +29,15 @@ Extraia objetivo, público/contexto, tema, referências, invariantes, variáveis
 
 Antes do layout final, traduza o tema para uma filosofia visual curta: atmosfera, materiais, luz, ritmo, cor e nível de ornamentação. Para variações da marca, essa direção deve ser subordinada à identidade da **ADEGA DOS 7**.
 
+Em um logo sazonal, escreva antes da geração um contrato de transformação interna:
+
+- `PRESERVAR`: contorno, lettering, garrafa/7, narguilé/rosh, fumaça característica, uma mangueira com uma piteira e os arcos estruturais na mesma quantidade, raio e posição;
+- `LIMPAR`: tracinhos laterais, raios, barras, ornamentos de rótulo e padrões internos herdados que não sejam estruturais;
+- `RECONSTRUIR`: miolo, cores, materiais e ornamentos que comunicarão o novo tema;
+- `LIMITE`: nenhuma extensão temática fora do emblema sem autorização explícita.
+
+O tratamento deve ser uma reconstrução interna orientada por pesquisa do tema, não uma camada de enfeites copiada de outra versão sazonal.
+
 ### 3. Construir Design Packet
 
 Produza:
@@ -44,7 +53,8 @@ Produza:
 9. negative space e densidade;
 10. associações indesejadas;
 11. regras negativas;
-12. critérios de aceite.
+12. mapa `PRESERVAR / LIMPAR / RECONSTRUIR / LIMITE`;
+13. critérios de aceite.
 
 Use ASCII/wireframe quando ajudar. O blueprint é uma planta, não a arte final.
 
@@ -65,6 +75,8 @@ Nunca considere a primeira renderização final por padrão. Revise:
 - anomalias típicas de IA;
 - adequação ao canal;
 - acabamento e produção.
+
+Para uma variação sazonal, confira também a contagem/posição dos arcos, a remoção do resíduo interno e a autenticidade do código visual do tema. Não aprove uma arte que apenas adiciona decoração mantendo o miolo anterior.
 
 ### 6. Corrigir conservadoramente
 

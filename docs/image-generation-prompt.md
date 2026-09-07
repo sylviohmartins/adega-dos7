@@ -55,6 +55,35 @@ Se houver uma imagem-base obrigatória:
 
 Quando a referência for a identidade-base da **ADEGA DOS 7**, registre explicitamente o caminho do master, o hash disponível e a separação entre invariantes permanentes e camada temática variável.
 
+#### Contrato para variação sazonal do emblema
+
+Quando o Modo C for usado para um logo sazonal da **ADEGA DOS 7**, preencha este contrato antes de gerar:
+
+```text
+PRESERVAR:
+- contorno externo do emblema;
+- lettering aprovado;
+- garrafa, número 7, narguilé/rosh e fumaça característica;
+- uma única mangueira com uma única piteira e suas conexões;
+- arcos estruturais existentes, na mesma quantidade, raios e posição relativa.
+
+LIMPAR:
+- tracinhos laterais, raios, barras, ornamentos de rótulo e padrões internos
+  herdados que não definem a marca.
+
+RECONSTRUIR:
+- todo o miolo necessário para comunicar <tema>;
+- paleta, materiais, luz e símbolos próprios do tema, definidos pela pesquisa atual.
+
+LIMITE:
+- nenhuma decoração temática fora do emblema;
+- nenhum arco novo;
+- nenhuma cópia automática de paleta, objeto ou ornamento de Natal, Ano Novo
+  ou outra variação.
+```
+
+O master manda na estrutura; o tema atual manda na direção de arte interna. Não faça apenas uma sobreposição decorativa.
+
 ### 4. HIERARQUIA VISUAL
 
 Prioridade 1: `<elemento principal>`
@@ -204,7 +233,9 @@ Revise silenciosamente a imagem e corrija qualquer falha antes de concluir:
 9. A paleta comunica o tema correto e evita associações indesejadas?
 10. A imagem mantém a identidade da referência quando aplicável?
 11. O enquadramento está completo e sem cortes acidentais?
-12. O resultado parece uma decisão de design intencional, e não uma colagem de elementos gerados pela IA?
+12. Os arcos mantêm quantidade, raios e posições; o resíduo interno foi limpo ou reconstruído?
+13. O tema é evidente no primeiro olhar e distinto das outras variações?
+14. O resultado parece uma decisão de design intencional, e não uma colagem de elementos gerados pela IA?
 
 ### 15. CRITÉRIO DE SUCESSO
 
@@ -224,6 +255,7 @@ Use <referência, se houver> como referência visual principal.
 Crie/edite uma imagem de <tipo> com tema <tema>, destinada a <uso>.
 
 Preserve obrigatoriamente: <elementos/identidade>.
+Contrato interno: PRESERVAR <...>; LIMPAR <...>; RECONSTRUIR <...>; LIMITE <...>.
 Inclua exatamente: <elementos obrigatórios>.
 Não inclua: <elementos proibidos>.
 
@@ -249,3 +281,5 @@ Quando houver uma marca ou logo já aprovado:
 ```text
 Preserve recognition first. Apply the theme second. Do not redesign what does not need to change.
 ```
+
+Para um logo sazonal, complemente essa regra com: preserve apenas o arcabouço estrutural identificado no master; limpe o resíduo interno não estrutural; reconstrua o miolo com códigos visuais pesquisados para o tema atual; mantenha tudo dentro do emblema; valide a contagem/posição dos arcos, a topologia dos objetos e a diferenciação cromática/semântica em relação às campanhas existentes.

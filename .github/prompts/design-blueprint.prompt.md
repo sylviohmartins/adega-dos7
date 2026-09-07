@@ -43,7 +43,9 @@ Entregue:
 15. elementos proibidos;
 16. bloqueadores de aprovação;
 17. testes de thumbnail, avatar/feed/story e impressão quando aplicável;
-18. recomendação de estratégia: geração do zero ou edição conservadora.
+18. mapa de transformação interna `PRESERVAR / LIMPAR / RECONSTRUIR / LIMITE`;
+19. quantidade, raio e posição relativa dos arcos estruturais a preservar;
+20. recomendação de estratégia: geração do zero ou edição conservadora.
 
 ## Regras
 
@@ -51,6 +53,10 @@ Entregue:
 - Para a **ADEGA DOS 7**, trate `assets/logos/original.png` como o master canônico. Descreva `assets/logos/natal-2026.png` e outras peças sazonais como derivados temáticos, nunca como origem da identidade.
 - Para uma peça de marca, escreva **ADEGA DOS 7** sempre em maiúsculas quando o nome completo aparecer em texto humano.
 - Não trate tema como mera coleção de enfeites; traduza-o por cor, luz, material, textura, atmosfera e ornamentos controlados.
+- Não trate cada detalhe interno do master como imutável. Separe o arcabouço estrutural do resíduo decorativo que deve ser limpo/reconstruído.
+- Em logos sazonais, preserve somente o contorno, lettering, garrafa/7, narguilé/rosh, fumaça característica, topologia funcional e os arcos estruturais existentes; não adicione arcos novos.
+- Faça a direção de cor e materialidade nascer da pesquisa do tema atual, sem herdar automaticamente a paleta ou os objetos de outra variação.
+- Mantenha a transformação temática dentro do emblema e declare qualquer exceção.
 - Modele explicitamente quantidades e conexões de objetos funcionais.
 - Identifique riscos de anomalias de IA antes da produção.
 - Para variações da marca: **RECOGNITION FIRST. THEME SECOND.**
