@@ -302,7 +302,7 @@ python scripts/validate_repository.py
 git diff --check
 ```
 
-Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-logo-frame-2026` confere com `93779db0718c0694d8f3e4212f575eac401ae05e`; `Repository policy` (run 34183420492) e `Validate visual assets` (run 34183420497) passaram no commit remoto `ca96e3263430cdf4b24e53ad34f543799878c573`. A substituição continua aguardando aprovação visual humana no PR #8, em modo draft.
+Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-logo-frame-2026` confere com `93779db0718c0694d8f3e4212f575eac401ae05e`; `Repository policy` e `Validate visual assets` passaram no PR #8. A substituição continua aguardando aprovação visual humana no PR #8, em modo draft.
 
 ## 15. Como reproduzir uma nova edição temática
 
