@@ -15,6 +15,9 @@ tamanho: 516.185 bytes
 SHA-256: 7807e9f8a153c69f130c7eba005ae185ba74d50ec6f983fac0e8034db36b5698
 git blob SHA-1: feb3b02d76b26cf04985f99e5acb715cb2a257b7
 última validação local: 2026-09-08
+PR: https://github.com/sylviohmartins/adega-dos7/pull/6
+commit remoto da branch: e026311bf75ee9b98b3a768bb57f8b5942af0422
+CI remoto: Validate visual assets ✅; Repository policy ✅
 ```
 
 ## Objetivo
@@ -179,7 +182,7 @@ Preserve the original compact, pale translucent gray-white S-shaped rosh smoke w
 
 Executados/registrados: `file`, `identify`, `sha256sum`, `git hash-object`, `python scripts/validate_assets.py`, `python scripts/validate_repository.py` e `git diff --check`.
 
-Resultado local: PNG decodificável, 1254 × 1254 px, 8-bit sRGB Palette com 256 cores, SHA-256 e hash Git local registrados acima. Blob remoto e CI serão preenchidos após o commit/PR; o gate humano continua pendente.
+Resultado local: PNG decodificável, 1254 × 1254 px, 8-bit sRGB Palette com 256 cores, SHA-256 e hash Git local registrados acima. O blob remoto confere com `feb3b02d76b26cf04985f99e5acb715cb2a257b7`; os dois workflows de CI passaram no commit da branch. O gate humano continua pendente.
 
 ## Reprodutibilidade e limitações
 

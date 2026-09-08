@@ -14,7 +14,7 @@
       "id": "carnival-asset",
       "description": "Criar a variação de Carnaval 2027.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["assets/logos/carnaval-2027.png foi gerado a partir de original.png com o miolo reconstruído para Carnaval: plumas, paetês, máscara, serpentinas e confetes ficaram contidos no emblema; o lettering, garrafa/7, narguilé, fumaça do rosh, uma mangueira, uma piteira e o arcabouço circular foram preservados na revisão visual local."],
+      "evidence": ["assets/logos/carnaval-2027.png foi gerado a partir de original.png com o miolo reconstruído para Carnaval: plumas, paetês, máscara, serpentinas e confetes ficaram contidos no emblema; o lettering, garrafa/7, narguilé, fumaça do rosh, uma mangueira, uma piteira e o arcabouço circular foram preservados na revisão visual local; PR #6 está aberto contra main para revisão humana."],
       "blocker": "Gate visual humano pendente antes da promoção para main."
     },
     {
@@ -35,14 +35,14 @@
       "id": "provenance",
       "description": "Registrar Design Packet, pesquisa temática, decisões, prompt, hashes, dimensões e limitações de reprodutibilidade para a arte de Carnaval.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["docs/assets/carnaval-2027.md registra Design Packet, pesquisa de referências de Carnaval, contrato PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, prompt efetivamente usado, iterações, critérios e hashes locais."],
+      "evidence": ["docs/assets/carnaval-2027.md registra Design Packet, pesquisa de referências de Carnaval, contrato PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, prompt efetivamente usado, iterações, critérios, hashes locais, PR #6, commit remoto e CI."],
       "blocker": "O registro acompanha a proposta e será marcado DONE após o gate visual e a promoção aprovados."
     },
     {
       "id": "validation",
       "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Carnaval.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["PNG local 1254x1254 íntegro, 516185 bytes, 8-bit Palette/256 cores, SHA-256 7807e9f8a153c69f130c7eba005ae185ba74d50ec6f983fac0e8034db36b5698 e blob Git local feb3b02d76b26cf04985f99e5acb715cb2a257b7; comparação master-versão, thumbnail e revisão em tons de cinza realizadas; python scripts/validate_assets.py, python scripts/validate_repository.py, json.tool e git diff --check passaram localmente; validação remota e checks de CI serão registrados após a abertura do PR."],
+      "evidence": ["PNG local 1254x1254 íntegro, 516185 bytes, 8-bit Palette/256 cores, SHA-256 7807e9f8a153c69f130c7eba005ae185ba74d50ec6f983fac0e8034db36b5698 e blob Git local/remoto feb3b02d76b26cf04985f99e5acb715cb2a257b7; comparação master-versão, thumbnail e revisão em tons de cinza realizadas; python scripts/validate_assets.py, python scripts/validate_repository.py, json.tool e git diff --check passaram localmente; PR #6, commit e os workflows Validate visual assets e Repository policy passaram remotamente."],
       "blocker": "Promoção remota e confirmação do gate humano ainda pendentes."
     }
   ],
@@ -59,6 +59,8 @@
     "assets/logos/carnaval-2027.png",
     "docs/assets/carnaval-2027.md",
     "docs/references.md",
+    "assets/logos/ano-novo-2027.png",
+    "docs/assets/ano-novo-2027.md",
     ".agents/runs/seasonal-logos-2027.json",
     "README.md",
     ".agents/rules/brand-integrity.md",
@@ -83,8 +85,8 @@
   ],
   "nextSteps": [
     "Executar validate_assets.py, validate_repository.py e git diff --check após registrar o Design Packet.",
-    "Publicar a imagem binária e os documentos em feat/logo-carnaval-2027 e abrir PR contra main.",
+    "A imagem binária e os documentos já estão publicados em feat/logo-carnaval-2027 no PR #6 contra main.",
     "Aguardar aprovação visual humana; após aprovação, marcar o run e os requisitos aplicáveis como DONE e promover a branch."
   ],
-  "lastCheckpoint": "2026-09-08T02:46:00Z"
+  "lastCheckpoint": "2026-09-08T02:50:11Z"
 }
