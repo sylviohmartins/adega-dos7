@@ -1,6 +1,6 @@
 {
   "taskId": "natal-rosh-smoke-2026",
-  "objective": "Recriar proporcionalmente a versão de Natal da ADEGA DOS 7, mantendo a identidade do master, a fumaça do rosh e a linguagem natalina dentro do emblema.",
+  "objective": "Recriar proporcionalmente a versão de Natal da ADEGA DOS 7, manter a identidade do master e a fumaça do rosh, e tematizar integralmente o primeiro anel sem reaproveitar seus tracinhos genéricos.",
   "status": "READY_FOR_HUMAN_REVIEW",
   "requirements": [
     {
@@ -14,14 +14,14 @@
       "id": "preserve-existing-art",
       "description": "Preservar a identidade geométrica, o lettering, a garrafa, o 7, o narguilé, a mangueira, a piteira e o enquadramento do master, recompondo somente o tratamento natalino interno.",
       "status": "DONE",
-      "evidence": ["A recriação final foi conferida contra o master: círculo, lettering, garrafa, rosh, fumaça, mangueira, piteira e 7 retornam à proporção e à posição corretas; a decoração natalina permanece interna ao emblema e a tentativa anterior com drift foi rejeitada."],
+      "evidence": ["A recriação final foi conferida contra o master: círculo, lettering, garrafa, rosh, fumaça, mangueira, piteira e 7 retornam à proporção e à posição corretas; a decoração natalina permanece interna ao emblema, e o primeiro anel substitui todos os tracinhos, barras e raios genéricos por uma guirlanda natalina. A tentativa anterior com drift foi rejeitada."],
       "blocker": null
     },
     {
       "id": "technical-validation",
       "description": "Validar o PNG, o repositório, a documentação e o CI após preparar a substituição.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; os validadores locais passaram; PR #8, blob remoto e os workflows Repository policy e Validate visual assets passaram."],
+      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 49e1c54219463bf1268b9d7e316bc37c5ee6249b2826d4951f6a956e8d5a2b7f e hash Git 1bb5df320cc71bc176c7a0c4eb464dc1a7f0a7b1 registrados no provenance; os validadores locais passaram; PR #8 e os workflows Repository policy e Validate visual assets serão revalidados após publicar a nova imagem."],
       "blocker": "Aprovação visual humana ainda pendente."
     },
     {
@@ -36,6 +36,7 @@
     "Usar natal-2026.png como alvo e original.png somente como fonte da fumaça característica.",
     "Não regenerar a composição natalina inteira: a primeira edição com image_gen foi rejeitada porque alterou pixels fora da região do rosh.",
     "Usar o original.png como matriz geométrica e a Natal anterior apenas como referência temática para a recriação proporcional.",
+    "Preservar somente os arcos circulares estruturais do primeiro anel; remover seus tracinhos, barras, raios e segmentos lineares e substituir a faixa por uma guirlanda natalina contínua.",
     "Tratar a translação inteira x=-3 px, y=+18 px como diagnóstico intermediário, não como solução final da proporção interna.",
     "Manter a substituição sujeita a branch, PR, CI e aprovação visual humana explícita."
   ],
@@ -54,5 +55,5 @@
     "PR #8 está aberto em modo draft contra main; os dois workflows passaram.",
     "Após aprovação visual, marcar o run como DONE e promover a substituição."
   ],
-  "lastCheckpoint": "2026-09-08T04:18:52Z"
+  "lastCheckpoint": "2026-09-08T04:26:00Z"
 }
