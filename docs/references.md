@@ -1,6 +1,6 @@
 # Referências de mercado e decisões de arquitetura
 
-Última revisão: **2026-09-06**.
+Última revisão: **2026-09-08**.
 
 Este repositório usa arquitetura de instruções em camadas, progressive disclosure e validações determinísticas para que diferentes agentes trabalhem na **ADEGA DOS 7** com o mesmo contrato operacional.
 
@@ -134,3 +134,14 @@ A intenção é aproximar agentes de IA de um processo profissional de design: *
 ## Fontes externas da marca
 
 Redes sociais podem exigir autenticação ou bloquear leitura automatizada. Informação de bio, endereço, catálogo, contato, política comercial ou posicionamento só deve entrar no repositório como fato quando puder ser verificada ou quando for explicitamente fornecida/aprovada pelo responsável da **ADEGA DOS 7**.
+
+## Pesquisa temática — Carnaval 2027
+
+Consultas realizadas em **2026-09-08** para orientar a variação temática, sem transformar uma referência de mercado em regra de identidade:
+
+- [Confea — Quando a fantasia entra na avenida](https://www.confea.org.br/quando-fantasia-entra-na-avenida-engenharia-sustenta-o-espetaculo): plumas, paetês, pedrarias, tecidos e cores vibrantes como códigos materiais do desfile;
+- [Riotur — Com que roupa?](https://riotur.rio/editorial/com-que-roupa/): glitter, pedra, cor, volume, brilho, paetê e acessórios multicoloridos em blocos, bailes e coleções de Carnaval;
+- [Gshow — Baile da Vogue 2026](https://gshow.globo.com/carnaval/2026/noticia/baile-da-vogue-veja-os-looks-dos-famosos-para-o-evento.ghtml): fantasias elaboradas, referências à cultura brasileira, personagens e muito brilho;
+- [Prefeitura do Rio — Carnaval 2026](https://prefeitura.rio/riotur/carnaval-2026-prefeitura-divulga-o-balanco-do-primeiro-dia-de-desfiles-do-grupo-especial/): fantasias e adereços detalhados, cores vibrantes, luz e caráter plural do Carnaval de rua e dos desfiles.
+
+Decisão aplicada: reconstruir o miolo com plumas, paetês, máscara, serpentinas e confetes em magenta, coral, turquesa, violeta e laranja, usando carvão como contraste. Dourado ficou apenas como reflexo/acento; não foi herdada a paleta dominante do Natal ou do Ano Novo. A pesquisa informa códigos visuais e riscos de associação, mas o master `assets/logos/original.png` continua sendo a única fonte de identidade estrutural.
