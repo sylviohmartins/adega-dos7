@@ -23,11 +23,13 @@ A versão Natal não é um redesign, não substitui o master e não deve ser usa
 ```text
 arquivo: assets/logos/natal-2026.png
 formato: PNG
+modo: 8-bit sRGB TrueColor
 canvas: 1254 × 1254 px
 proporção: 1:1
-tamanho: 2.031.991 bytes
-git blob SHA-1: d66d6bbd05d657a6abd7c9b9186f8b5daaecdefc
-SHA-256: f1e71b265888a3f2c2c282245873ec46f9fcf987b58ae64958368c205e33e1d0
+tamanho: 1.997.910 bytes
+git blob SHA-1: cbacef90d6b82aeba6945a388a5b18e359466ba3
+SHA-256: e7ef64018035f81d336b7e8ec1a8c8b8fa94c38d7a5f7dedb4786a2e04fcb8a9
+última correção: 2026-09-08 — restauração localizada da fumaça do rosh
 ```
 
 Master de referência:
@@ -64,6 +66,7 @@ A variação só é aprovada quando:
 - preserva o mesmo emblema, lettering, garrafa, número `7`, narguilé, mangueira e piteira do master;
 - comunica Natal por cor, material, luz e ornamentos, sem precisar de texto explicativo;
 - mantém a topologia física dos objetos;
+- mantém a fumaça original do rosh visível e reconhecível;
 - não introduz ruído, duplicações ou elementos temáticos que roubem o foco;
 - funciona em tamanho normal, thumbnail e avatar;
 - passa pela validação técnica e pelo registro de provenance.
@@ -83,6 +86,7 @@ Princípio de decisão:
 - narguilé à esquerda;
 - uma mangueira contínua;
 - uma única piteira final;
+- fumaça característica do rosh, com a mesma origem, curva, escala e peso visual do master;
 - fundo preto e molduras metálicas;
 - coerência de escala, encaixe, volumes e conexões;
 - identidade de acabamento vintage-premium.
@@ -149,7 +153,7 @@ O prompt de produção deve ser montado em blocos, para separar intenção de de
 
 1. papel: diretor de arte, designer de identidade e revisor visual;
 2. referência: `assets/logos/original.png` como fonte de verdade;
-3. invariantes: objetos, texto, composição, proporções e topologia;
+3. invariantes: objetos, texto, composição, proporções, topologia e fumaça característica do rosh;
 4. direção temática: Natal traduzido por paleta, material, luz e ornamentação;
 5. materialidade: vidro, cobre, bronze, madeira, verde profundo e bordô controlado;
 6. negativos: duplicações, texto aleatório, ruído, estética esportiva, cartoon/neon e excesso de neve;
@@ -162,8 +166,9 @@ O prompt de produção deve ser montado em blocos, para separar intenção de de
 Atue como diretor de arte e designer de identidade visual da ADEGA DOS 7.
 Use assets/logos/original.png como matriz canônica e preserve reconhecimento antes
 de aplicar o tema. Mantenha o emblema circular, o texto exato ADEGA DOS, a garrafa
-central, o número 7, o narguilé à esquerda, uma única mangueira contínua e uma
-única piteira final. Preserve escala, encaixes, materiais e leitura em thumbnail.
+central, o número 7, o narguilé à esquerda, uma única mangueira contínua, uma
+única piteira final e a fumaça compacta e característica do rosh. Preserve escala,
+encaixes, materiais e leitura em thumbnail.
 
 Adicione Natal apenas como camada secundária por meio de verde profundo, bordô/vinho,
 dourado metálico, champagne, luz quente e ornamentação periférica fina. Não use
@@ -211,6 +216,9 @@ NARGUILÉ
 └── 1 saída visível
     └── 1 mangueira contínua
         └── 1 piteira final
+
+ROSH
+└── fumaça característica preservada
 ```
 
 Versões intermediárias sugeriam duas mangueiras ou múltiplas piteiras/peças metálicas. Isso foi tratado como anomalia estrutural e removido.
@@ -232,6 +240,10 @@ Foram removidos estrelas laterais sem função, múltiplos segmentos de mangueir
 ### Iteração 4 — correção de linguagem cromática
 
 A combinação inicial de verde, dourado e branco lembrava uma estética esportiva/Copa. A paleta foi ajustada para verde natalino profundo, bordô/vinho, dourado metálico, champagne e branco mínimo.
+
+### Iteração 5 — restauração localizada da fumaça do rosh (2026-09-08)
+
+A revisão do asset aprovado identificou que a fumaça característica do rosh não estava presente. Uma edição gerada por IA foi testada com instrução de mudança única, mas a comparação pixel a pixel mostrou drift em toda a composição; essa saída foi rejeitada. A versão selecionada foi composta conservadoramente a partir do wisp do `original.png` sobre a Natal existente. A diferença ficou restrita à região da fumaça: 2.387 pixels alterados, com bounding box de 65 × 115 px após limiarização. Nenhum outro elemento foi redesenhado.
 
 ## 12. Paleta funcional
 
@@ -270,6 +282,7 @@ A revisão final deve conferir:
 - quantidade e função dos objetos;
 - contraste, materialidade e associação cromática;
 - equilíbrio dos ornamentos;
+- presença, origem e curva da fumaça característica do rosh;
 - leitura em 128 px e 64 px;
 - versão em tons de cinza;
 - safe area e uso como avatar;
@@ -302,4 +315,4 @@ Consulte `.github/prompts/design-blueprint.prompt.md`, `.github/prompts/create-t
 
 ## 16. Limitações de provenance
 
-Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.
+Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. A tentativa de edição com `image_gen` foi usada como rascunho, mas rejeitada por alterar pixels fora do rosh. O asset final usa uma composição raster localizada do wisp original, preservando o restante da Natal. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.

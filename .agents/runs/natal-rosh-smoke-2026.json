@@ -1,0 +1,56 @@
+{
+  "taskId": "natal-rosh-smoke-2026",
+  "objective": "Corrigir a versão de Natal da ADEGA DOS 7 para recuperar a fumaça característica do rosh sem alterar o restante da arte aprovada.",
+  "status": "READY_FOR_HUMAN_REVIEW",
+  "requirements": [
+    {
+      "id": "restore-rosh-smoke",
+      "description": "Adicionar a fumaça original do rosh na mesma origem, curva, escala, opacidade e peso visual do master.",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["Fumaça do original.png foi composta sobre a Natal existente; inspeção visual confirmou um wisp compacto, translúcido e legível acima do rosh."],
+      "blocker": "Gate visual humano pendente antes da substituição do asset aprovado na main."
+    },
+    {
+      "id": "preserve-existing-art",
+      "description": "Preservar contorno, arcos, lettering, garrafa, 7, elementos de Natal, narguilé, mangueira e piteira sem redesign.",
+      "status": "DONE",
+      "evidence": ["Comparação pixel a pixel entre a Natal original e a correção selecionada: 2.387 pixels alterados, diferença limiarizada restrita a bounding box de 65 × 115 px na região do rosh; a tentativa de edição que alterava o quadro inteiro foi rejeitada."],
+      "blocker": null
+    },
+    {
+      "id": "technical-validation",
+      "description": "Validar o PNG, o repositório, a documentação e o CI após preparar a substituição.",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; validadores locais serão executados antes do PR e CI será registrado após a publicação."],
+      "blocker": "PR e validação remota ainda pendentes."
+    },
+    {
+      "id": "provenance",
+      "description": "Registrar a correção localizada, a rejeição da saída com drift e os hashes do novo asset.",
+      "status": "DONE",
+      "evidence": ["docs/assets/natal-2026.md foi atualizado com a nova identificação, o motivo da correção, a comparação localizada e a limitação de reprodutibilidade."],
+      "blocker": null
+    }
+  ],
+  "decisions": [
+    "Usar natal-2026.png como alvo e original.png somente como fonte da fumaça característica.",
+    "Não regenerar a composição natalina inteira: a primeira edição com image_gen foi rejeitada porque alterou pixels fora da região do rosh.",
+    "Aplicar composição raster localizada para cumprir a solicitação de mudança única e preservar a arte já aprovada.",
+    "Manter a substituição sujeita a branch, PR, CI e aprovação visual humana explícita."
+  ],
+  "filesAffected": [
+    "assets/logos/natal-2026.png",
+    "docs/assets/natal-2026.md",
+    ".agents/runs/natal-rosh-smoke-2026.json"
+  ],
+  "openRisks": [
+    "A fumaça precisa permanecer visível sem competir com a fita natalina e o fundo vermelho/verde.",
+    "A substituição de um asset aprovado exige aprovação visual explícita antes da promoção para main."
+  ],
+  "nextSteps": [
+    "Executar os validadores locais e publicar os três arquivos em branch própria.",
+    "Abrir PR contra main e registrar o resultado dos workflows.",
+    "Após aprovação visual, marcar o run como DONE e promover a substituição."
+  ],
+  "lastCheckpoint": "2026-09-08T03:00:00Z"
+}
