@@ -30,7 +30,7 @@ tamanho: 1.992.770 bytes
 git blob SHA-1: 93779db0718c0694d8f3e4212f575eac401ae05e
 SHA-256: 36ce17914341f47179ebdf9de8e341cdff5d66307c2a66e4fe4d5d600d955479
 última correção: 2026-09-08 — normalização do enquadramento e alinhamento da fumaça do rosh
-PR da correção: https://github.com/sylviohmartins/adega-dos7/pull/7
+PR da correção: https://github.com/sylviohmartins/adega-dos7/pull/8
 CI remoto: Validate visual assets ✅; Repository policy ✅
 ```
 
@@ -302,7 +302,7 @@ python scripts/validate_repository.py
 git diff --check
 ```
 
-Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-rosh-smoke` deve conferir com `93779db0718c0694d8f3e4212f575eac401ae05e`; os dois workflows devem passar após a atualização do PR. A substituição continua aguardando aprovação visual humana no PR #7.
+Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-logo-frame-2026` confere com `93779db0718c0694d8f3e4212f575eac401ae05e`; `Repository policy` (run 34183420492) e `Validate visual assets` (run 34183420497) passaram no commit remoto `ca96e3263430cdf4b24e53ad34f543799878c573`. A substituição continua aguardando aprovação visual humana no PR #8, em modo draft.
 
 ## 15. Como reproduzir uma nova edição temática
 
