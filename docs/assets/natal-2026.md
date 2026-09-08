@@ -26,10 +26,12 @@ formato: PNG
 modo: 8-bit sRGB TrueColor
 canvas: 1254 × 1254 px
 proporção: 1:1
-tamanho: 1.997.910 bytes
-git blob SHA-1: cbacef90d6b82aeba6945a388a5b18e359466ba3
-SHA-256: e7ef64018035f81d336b7e8ec1a8c8b8fa94c38d7a5f7dedb4786a2e04fcb8a9
-última correção: 2026-09-08 — restauração localizada da fumaça do rosh
+tamanho: 1.992.770 bytes
+git blob SHA-1: 93779db0718c0694d8f3e4212f575eac401ae05e
+SHA-256: 36ce17914341f47179ebdf9de8e341cdff5d66307c2a66e4fe4d5d600d955479
+última correção: 2026-09-08 — normalização do enquadramento e alinhamento da fumaça do rosh
+PR da correção: https://github.com/sylviohmartins/adega-dos7/pull/7
+CI remoto: Validate visual assets ✅; Repository policy ✅
 ```
 
 Master de referência:
@@ -245,6 +247,10 @@ A combinação inicial de verde, dourado e branco lembrava uma estética esporti
 
 A revisão do asset aprovado identificou que a fumaça característica do rosh não estava presente. Uma edição gerada por IA foi testada com instrução de mudança única, mas a comparação pixel a pixel mostrou drift em toda a composição; essa saída foi rejeitada. A versão selecionada foi composta conservadoramente a partir do wisp do `original.png` sobre a Natal existente. A diferença ficou restrita à região da fumaça: 2.387 pixels alterados, com bounding box de 65 × 115 px após limiarização. Nenhum outro elemento foi redesenhado.
 
+### Iteração 6 — normalização do enquadramento e alinhamento (2026-09-08)
+
+A inspeção comparativa mostrou que o canvas já era `1254 × 1254 px`, mas o emblema natalino estava aproximadamente 18 px acima e 3 px à direita do enquadramento usado por `original.png`, `ano-novo-2027.png` e `carnaval-2027.png`. A correção final aplica somente uma translação inteira de `x=-3 px` e `y=+18 px`, preenchendo o espaço excedente com preto. Não há escala, interpolação, redesenho ou alteração de cor: a fumaça, o rosh e toda a decoração natalina se movem juntos, mantendo suas características.
+
 ## 12. Paleta funcional
 
 | Função | Direção |
@@ -296,6 +302,8 @@ python scripts/validate_repository.py
 git diff --check
 ```
 
+Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-rosh-smoke` deve conferir com `93779db0718c0694d8f3e4212f575eac401ae05e`; os dois workflows devem passar após a atualização do PR. A substituição continua aguardando aprovação visual humana no PR #7.
+
 ## 15. Como reproduzir uma nova edição temática
 
 1. começar por `assets/logos/original.png`;
@@ -315,4 +323,4 @@ Consulte `.github/prompts/design-blueprint.prompt.md`, `.github/prompts/create-t
 
 ## 16. Limitações de provenance
 
-Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. A tentativa de edição com `image_gen` foi usada como rascunho, mas rejeitada por alterar pixels fora do rosh. O asset final usa uma composição raster localizada do wisp original, preservando o restante da Natal. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.
+Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. A tentativa de edição com `image_gen` foi usada como rascunho, mas rejeitada por alterar pixels fora do rosh. O asset final usa composição raster localizada do wisp original e depois uma translação inteira do quadro, sem reamostragem; isso preserva o restante da Natal e normaliza o enquadramento. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.
