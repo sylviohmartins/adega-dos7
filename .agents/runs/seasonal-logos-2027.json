@@ -1,7 +1,7 @@
 {
   "taskId": "seasonal-logos-2027",
-  "objective": "Criar e validar a variação sazonal do logo da ADEGA DOS 7 para Ano Novo 2027, com transformação interna autêntica e diferenciação cromática em relação ao Natal.",
-  "status": "DONE",
+  "objective": "Criar, validar e preparar a variação sazonal do logo da ADEGA DOS 7 para Carnaval 2027, com transformação interna autêntica e diferenciação cromática em relação ao Natal e ao Ano Novo.",
+  "status": "READY_FOR_HUMAN_REVIEW",
   "requirements": [
     {
       "id": "new-year-asset",
@@ -13,9 +13,9 @@
     {
       "id": "carnival-asset",
       "description": "Criar a variação de Carnaval 2027.",
-      "status": "NOT_APPLICABLE",
-      "evidence": ["Escopo desta rodada foi restringido à pesquisa, revisão e criação da arte de Ano Novo 2027; nenhuma proposta de Carnaval será promovida com a direção anterior."],
-      "blocker": "Fora do escopo da rodada atual; poderá ser retomado posteriormente com o mesmo critério de transformação interna."
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["assets/logos/carnaval-2027.png foi gerado a partir de original.png com o miolo reconstruído para Carnaval: plumas, paetês, máscara, serpentinas e confetes ficaram contidos no emblema; o lettering, garrafa/7, narguilé, fumaça do rosh, uma mangueira, uma piteira e o arcabouço circular foram preservados na revisão visual local; PR #6 está aberto contra main para revisão humana."],
+      "blocker": "Gate visual humano pendente antes da promoção para main."
     },
     {
       "id": "seasonal-workflow-reuse",
@@ -33,29 +33,32 @@
     },
     {
       "id": "provenance",
-      "description": "Registrar Design Packet, decisões, prompts, hashes, dimensões e limitações de reprodutibilidade para a arte de Ano Novo.",
-      "status": "DONE",
-      "evidence": ["docs/assets/ano-novo-2027.md registra Design Packet, pesquisa de paleta, prompts, iterações, critérios e hashes."],
-      "blocker": null
+      "description": "Registrar Design Packet, pesquisa temática, decisões, prompt, hashes, dimensões e limitações de reprodutibilidade para a arte de Carnaval.",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["docs/assets/carnaval-2027.md registra Design Packet, pesquisa de referências de Carnaval, contrato PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, prompt efetivamente usado, iterações, critérios, hashes locais, PR #6, commit remoto e CI."],
+      "blocker": "O registro acompanha a proposta e será marcado DONE após o gate visual e a promoção aprovados."
     },
     {
       "id": "validation",
-      "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Ano Novo.",
-      "status": "DONE",
-      "evidence": ["python scripts/validate_assets.py passou localmente; python scripts/validate_repository.py passou; git diff --check passou; thumbnails de 128/64 px e tons de cinza foram inspecionados; PNG 1254x1254 íntegro, 8-bit indexado, SHA-256 416ac60799aac161c526fb75832930e3c04e76b2dd59057a46073587835d03ea; PR #4 e commit remoto 60244cb307758db59803a673a69382f8a36f1502 publicados e mesclados na main pelo responsável sylviohmartins; blob remoto d1974493a74ffd2f8736cea48b8952de1766c1f8 conferido com o arquivo local."],
-      "blocker": null
+      "description": "Executar validações técnicas, revisão visual, upload binário real, validação remota e checks do repositório para a arte de Carnaval.",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "evidence": ["PNG local 1254x1254 íntegro, 516185 bytes, 8-bit Palette/256 cores, SHA-256 7807e9f8a153c69f130c7eba005ae185ba74d50ec6f983fac0e8034db36b5698 e blob Git local/remoto feb3b02d76b26cf04985f99e5acb715cb2a257b7; comparação master-versão, thumbnail e revisão em tons de cinza realizadas; python scripts/validate_assets.py, python scripts/validate_repository.py, json.tool e git diff --check passaram localmente; PR #6, commit e os workflows Validate visual assets e Repository policy passaram remotamente."],
+      "blocker": "Promoção remota e confirmação do gate humano ainda pendentes."
     }
   ],
   "decisions": [
-    "Usar assets/logos/original.png como matriz de identidade e natal-2026.png como referência direta do tratamento interno, sem redefinir a origem da marca.",
-    "Usar o nome ano-novo-2027.png conforme a convenção do repositório.",
+    "Usar assets/logos/original.png como matriz de identidade; natal-2026.png orienta somente o grau de reconstrução interna e ano-novo-2027.png funciona como contraste, sem redefinir a origem da marca.",
+    "Usar o nome carnaval-2027.png conforme a convenção do repositório.",
     "Não adicionar slogans, datas ou texto secundário dentro dos emblemas.",
-    "Pesquisa de mercado confirmou que dourado é recorrente no Réveillon, mas a diferenciação desta arte deve ser conduzida por carvão, branco/ivory e prata/cromado; dourado/champagne fica como acento de líquido, reflexos e fogos.",
+    "Pesquisa temática de Carnaval confirmou o valor semântico de plumas, paetês, pedrarias, brilho, volume, cores vibrantes, máscaras e adereços; a diferenciação desta arte deve ser conduzida por carvão, magenta, coral, turquesa, violeta e laranja, com dourado apenas como reflexo/acento.",
     "Remover os tracinhos, barras, raios e arcos decorativos internos herdados do master para que o tema ocupe o miolo de forma autêntica; preservar somente o arcabouço essencial da marca.",
     "Generalizar o aprendizado para novos temas: classificar PRESERVAR/LIMPAR/RECONSTRUIR/LIMITE, pesquisar os códigos do evento atual, não herdar paleta/ornamentos de campanhas anteriores e manter a transformação dentro do emblema.",
-    "Trabalhar em branch própria e manter main sem escrita direta."
+    "Trabalhar em branch própria, abrir PR contra a main e manter a promoção sujeita à revisão humana."
   ],
   "filesAffected": [
+    "assets/logos/carnaval-2027.png",
+    "docs/assets/carnaval-2027.md",
+    "docs/references.md",
     "assets/logos/ano-novo-2027.png",
     "docs/assets/ano-novo-2027.md",
     ".agents/runs/seasonal-logos-2027.json",
@@ -76,11 +79,14 @@
     "scripts/validate_repository.py"
   ],
   "openRisks": [
-    "Geração de imagem pode introduzir alterações acidentais no lettering ou duplicar a mangueira/piteira.",
-    "O tema de Ano Novo pode ser confundido com decoração natalina se usar vermelho, verde ou excesso de enfeites."
+    "Geração de imagem pode introduzir alterações acidentais no lettering, nos arcos ou duplicar a mangueira/piteira; a revisão visual deve permanecer obrigatória.",
+    "O excesso de paetês, cores ou máscara pode competir com a marca em miniatura; confirmar leitura em 64–128 px no gate humano.",
+    "A peça ainda não está promovida para main até aprovação visual explícita."
   ],
   "nextSteps": [
-    "Quando Carnaval for solicitado, abrir uma rodada própria, iniciar pelo master original, pesquisar referências atuais e preencher o contrato de transformação interna antes da geração."
+    "Executar validate_assets.py, validate_repository.py e git diff --check após registrar o Design Packet.",
+    "A imagem binária e os documentos já estão publicados em feat/logo-carnaval-2027 no PR #6 contra main.",
+    "Aguardar aprovação visual humana; após aprovação, marcar o run e os requisitos aplicáveis como DONE e promover a branch."
   ],
-  "lastCheckpoint": "2026-09-07T02:16:54Z"
+  "lastCheckpoint": "2026-09-08T02:50:11Z"
 }
