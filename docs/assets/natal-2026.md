@@ -26,10 +26,12 @@ formato: PNG
 modo: 8-bit sRGB TrueColor
 canvas: 1254 × 1254 px
 proporção: 1:1
-tamanho: 1.997.910 bytes
-git blob SHA-1: cbacef90d6b82aeba6945a388a5b18e359466ba3
-SHA-256: e7ef64018035f81d336b7e8ec1a8c8b8fa94c38d7a5f7dedb4786a2e04fcb8a9
-última correção: 2026-09-08 — restauração localizada da fumaça do rosh
+tamanho: 2.019.672 bytes
+git blob SHA-1: 1bb5df320cc71bc176c7a0c4eb464dc1a7f0a7b1
+SHA-256: 49e1c54219463bf1268b9d7e316bc37c5ee6249b2826d4951f6a956e8d5a2b7f
+última correção: 2026-09-08 — tematização integral do primeiro anel natalino
+PR da correção: https://github.com/sylviohmartins/adega-dos7/pull/8
+CI remoto: Validate visual assets ✅; Repository policy ✅
 ```
 
 Master de referência:
@@ -245,6 +247,18 @@ A combinação inicial de verde, dourado e branco lembrava uma estética esporti
 
 A revisão do asset aprovado identificou que a fumaça característica do rosh não estava presente. Uma edição gerada por IA foi testada com instrução de mudança única, mas a comparação pixel a pixel mostrou drift em toda a composição; essa saída foi rejeitada. A versão selecionada foi composta conservadoramente a partir do wisp do `original.png` sobre a Natal existente. A diferença ficou restrita à região da fumaça: 2.387 pixels alterados, com bounding box de 65 × 115 px após limiarização. Nenhum outro elemento foi redesenhado.
 
+### Iteração 6 — normalização do enquadramento e alinhamento (2026-09-08)
+
+A inspeção comparativa mostrou que o canvas já era `1254 × 1254 px`, mas o emblema natalino estava aproximadamente 18 px acima e 3 px à direita do enquadramento usado por `original.png`, `ano-novo-2027.png` e `carnaval-2027.png`. A versão intermediária aplicou uma translação inteira de `x=-3 px` e `y=+18 px`, sem reamostragem. Ela confirmou a direção do ajuste, mas a revisão seguinte identificou que a proporção interna de garrafa, rosh e lettering ainda não correspondia ao master; por isso, essa versão foi substituída pela recriação proporcional da Iteração 7.
+
+### Iteração 7 — recriação proporcional com o master geométrico (2026-09-08)
+
+Após o feedback de que a logo continuava deslocada, foi separado o problema de canvas do problema de proporção interna. `original.png` foi usado como matriz obrigatória de geometria — círculo, lettering, garrafa, rosh, fumaça, mangueira, piteira, `7` e arcos — enquanto a Natal anterior foi usada apenas como referência da linguagem temática. A recriação final reposiciona e redimensiona os elementos estruturais para o padrão do master e recompõe o interior com pinheiros, laços, azevinho, bolas, pinhas e luzes quentes dentro do emblema. A fumaça volta a ocupar a origem e o eixo visual corretos do rosh. A saída foi inspecionada em tamanho normal, 128 px, 64 px e tons de cinza; não foram observados textos extras, objetos externos, mangueira duplicada ou piteira adicional.
+
+### Iteração 8 — tematização integral do primeiro anel (2026-09-08)
+
+A revisão seguinte identificou que a proporção já estava corrigida, mas ainda havia tracinhos, barras horizontais, raios e segmentos lineares genéricos herdados do master no primeiro anel — a faixa entre o lettering e o conjunto central. A correção foi localizada nessa faixa: todos os marcadores geométricos não estruturais foram removidos e substituídos por uma guirlanda contínua acompanhando a curvatura, com pinheiro verde-escuro, azevinho, frutos bordô/vermelhos, pinhas, laços bordô e micro-luzes quentes. Os arcos circulares necessários à identidade foram preservados exatamente como estrutura; nenhum novo arco foi criado. A garrafa, o narguilé, a fumaça, a mangueira, a piteira, o `7`, o lettering e o enquadramento não foram redesenhados. A inspeção final confirmou que o primeiro anel comunica Natal por inteiro, sem as marcas decorativas originais e sem texto adicional.
+
 ## 12. Paleta funcional
 
 | Função | Direção |
@@ -269,6 +283,7 @@ Não utilizar:
 - excesso de neve;
 - estética cartoon/neon;
 - ornamentos que escondam a conexão do narguilé;
+- tracinhos, barras horizontais, raios ou segmentos geométricos herdados no primeiro anel;
 - vermelho excessivamente saturado;
 - paleta que remeta à Copa/Brasil.
 
@@ -283,6 +298,7 @@ A revisão final deve conferir:
 - contraste, materialidade e associação cromática;
 - equilíbrio dos ornamentos;
 - presença, origem e curva da fumaça característica do rosh;
+- primeiro anel completamente natalino, sem marcas lineares genéricas do master;
 - leitura em 128 px e 64 px;
 - versão em tons de cinza;
 - safe area e uso como avatar;
@@ -295,6 +311,8 @@ python scripts/validate_assets.py
 python scripts/validate_repository.py
 git diff --check
 ```
+
+Validação remota: o blob de `assets/logos/natal-2026.png` na branch `fix/natal-logo-frame-2026` confere com `1bb5df320cc71bc176c7a0c4eb464dc1a7f0a7b1`; `Repository policy` e `Validate visual assets` passaram no PR #8. A substituição continua aguardando aprovação visual humana no PR #8, em modo draft.
 
 ## 15. Como reproduzir uma nova edição temática
 
@@ -315,4 +333,4 @@ Consulte `.github/prompts/design-blueprint.prompt.md`, `.github/prompts/create-t
 
 ## 16. Limitações de provenance
 
-Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. A tentativa de edição com `image_gen` foi usada como rascunho, mas rejeitada por alterar pixels fora do rosh. O asset final usa uma composição raster localizada do wisp original, preservando o restante da Natal. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.
+Não foram preservados nesta versão o seed específico do gerador nem os parâmetros internos do modelo de imagem. A primeira tentativa de edição com `image_gen` foi rejeitada por alterar pixels fora do rosh; a translação inteira da Iteração 6 também foi tratada como intermediária porque não resolvia a proporção interna. O asset final usa a recriação proporcional da Iteração 7, seguida da tematização localizada do primeiro anel na Iteração 8, gerada com `original.png` como matriz geométrica e a Natal anterior como referência temática, e validada visualmente antes da publicação. O repositório preserva o asset final, o master de origem, o plano, as decisões, os critérios e os hashes; isso permite repetir o processo com controle, mas não promete reprodução pixel a pixel.
