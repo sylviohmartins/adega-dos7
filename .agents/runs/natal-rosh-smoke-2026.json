@@ -21,8 +21,8 @@
       "id": "technical-validation",
       "description": "Validar o PNG, o repositório, a documentação e o CI após preparar a substituição.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; os validadores locais serão repetidos após a atualização; PR #8 e CI serão atualizados antes da revisão visual."],
-      "blocker": "Atualização do PR e aprovação visual humana ainda pendentes."
+      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; os validadores locais passaram; PR #8, blob remoto e os workflows Repository policy e Validate visual assets passaram."],
+      "blocker": "Aprovação visual humana ainda pendente."
     },
     {
       "id": "provenance",
@@ -50,9 +50,9 @@
     "A substituição de um asset aprovado exige aprovação visual explícita antes da promoção para main."
   ],
   "nextSteps": [
-    "Repetir os validadores locais e atualizar os três arquivos na branch própria.",
-    "Atualizar o PR #8 em modo draft contra main e registrar o resultado dos workflows.",
+    "Os validadores locais passaram; os três arquivos estão publicados na branch própria.",
+    "PR #8 está aberto em modo draft contra main; os dois workflows passaram.",
     "Após aprovação visual, marcar o run como DONE e promover a substituição."
   ],
-  "lastCheckpoint": "2026-09-08T04:15:18Z"
+  "lastCheckpoint": "2026-09-08T04:18:52Z"
 }
