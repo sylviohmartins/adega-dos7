@@ -1,28 +1,28 @@
 {
   "taskId": "natal-rosh-smoke-2026",
-  "objective": "Corrigir a versão de Natal da ADEGA DOS 7, recuperar a fumaça característica do rosh e normalizar o enquadramento para o padrão dos demais logos sem redesenhar a arte.",
+  "objective": "Recriar proporcionalmente a versão de Natal da ADEGA DOS 7, mantendo a identidade do master, a fumaça do rosh e a linguagem natalina dentro do emblema.",
   "status": "READY_FOR_HUMAN_REVIEW",
   "requirements": [
     {
       "id": "restore-rosh-smoke",
       "description": "Adicionar a fumaça original do rosh na mesma origem, curva, escala, opacidade e peso visual do master.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["Fumaça do original.png foi composta sobre a Natal existente e depois transladada junto com o rosh para o enquadramento normalizado; inspeção visual confirmou um wisp compacto, translúcido e legível acima do rosh; a correção está no PR #8 e aguarda revisão visual."],
+      "evidence": ["A recriação usa o master como matriz de posição do rosh e da fumaça; a inspeção visual confirmou um wisp compacto, translúcido e legível na origem correta; a correção está no PR #8 e aguarda revisão visual."],
       "blocker": "Gate visual humano pendente antes da substituição do asset aprovado na main."
     },
     {
       "id": "preserve-existing-art",
-      "description": "Preservar contorno, arcos, lettering, garrafa, 7, elementos de Natal, narguilé, mangueira e piteira sem redesign, apenas normalizando o enquadramento.",
+      "description": "Preservar a identidade geométrica, o lettering, a garrafa, o 7, o narguilé, a mangueira, a piteira e o enquadramento do master, recompondo somente o tratamento natalino interno.",
       "status": "DONE",
-      "evidence": ["A fumaça foi restaurada localmente e o quadro final foi transladado por inteiros em x=-3 px e y=+18 px, sem escala, interpolação ou redesenho; a tentativa de edição que alterava o quadro inteiro foi rejeitada."],
+      "evidence": ["A recriação final foi conferida contra o master: círculo, lettering, garrafa, rosh, fumaça, mangueira, piteira e 7 retornam à proporção e à posição corretas; a decoração natalina permanece interna ao emblema e a tentativa anterior com drift foi rejeitada."],
       "blocker": null
     },
     {
       "id": "technical-validation",
       "description": "Validar o PNG, o repositório, a documentação e o CI após preparar a substituição.",
       "status": "READY_FOR_HUMAN_REVIEW",
-      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; os validadores locais passaram; PR #8, blob remoto e os workflows Repository policy e Validate visual assets passaram."],
-      "blocker": "Aprovação visual humana ainda pendente."
+      "evidence": ["PNG local decodificável em 1254 × 1254 px; SHA-256 e hash Git registrados no provenance; os validadores locais serão repetidos após a atualização; PR #8 e CI serão atualizados antes da revisão visual."],
+      "blocker": "Atualização do PR e aprovação visual humana ainda pendentes."
     },
     {
       "id": "provenance",
@@ -35,8 +35,8 @@
   "decisions": [
     "Usar natal-2026.png como alvo e original.png somente como fonte da fumaça característica.",
     "Não regenerar a composição natalina inteira: a primeira edição com image_gen foi rejeitada porque alterou pixels fora da região do rosh.",
-    "Aplicar composição raster localizada para cumprir a solicitação de mudança única e preservar a arte já aprovada.",
-    "Normalizar a arte natalina para o enquadramento dos demais logos com translação inteira x=-3 px, y=+18 px, sem reamostragem.",
+    "Usar o original.png como matriz geométrica e a Natal anterior apenas como referência temática para a recriação proporcional.",
+    "Tratar a translação inteira x=-3 px, y=+18 px como diagnóstico intermediário, não como solução final da proporção interna.",
     "Manter a substituição sujeita a branch, PR, CI e aprovação visual humana explícita."
   ],
   "filesAffected": [
@@ -46,13 +46,13 @@
   ],
   "openRisks": [
     "A fumaça precisa permanecer visível sem competir com a fita natalina e o fundo vermelho/verde.",
-    "A revisão visual deve confirmar que o emblema normalizado ocupa a mesma área útil vertical dos demais logos.",
+    "A revisão visual deve confirmar que a geometria estrutural e a área útil do emblema coincidem com o master.",
     "A substituição de um asset aprovado exige aprovação visual explícita antes da promoção para main."
   ],
   "nextSteps": [
-    "Os validadores locais passaram; os três arquivos estão publicados na branch própria.",
-    "PR #8 está aberto em modo draft contra main; os dois workflows passaram.",
+    "Repetir os validadores locais e atualizar os três arquivos na branch própria.",
+    "Atualizar o PR #8 em modo draft contra main e registrar o resultado dos workflows.",
     "Após aprovação visual, marcar o run como DONE e promover a substituição."
   ],
-  "lastCheckpoint": "2026-09-08T03:28:34Z"
+  "lastCheckpoint": "2026-09-08T04:15:18Z"
 }
